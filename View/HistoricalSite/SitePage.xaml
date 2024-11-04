@@ -1,0 +1,116 @@
+﻿<Page x:Class="TestApp.View.HistoricalSite.SitePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:TestApp.View.HistoricalSite" 
+    xmlns:viewmodel="clr-namespace:TestApp.ViewModel"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800"
+    Title="DistinctDetailPage"   
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="{Binding Image}" 
+               Stretch="UniformToFill" 
+               Grid.Row="0" 
+               Opacity="0.5"/>
+
+        <!-- Title and Foundation Date -->
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25">
+            <TextBlock Text="{Binding Name}" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"/>
+            <ui:TextBlock FontSize="16" 
+                          Foreground="White" 
+                          HorizontalAlignment="Center">
+                <ui:TextBlock.Inlines>
+                    <Run Text="Дата основания: "/>
+                    <Run Text="{Binding Path=Foundating_date}"/>
+                </ui:TextBlock.Inlines>
+            </ui:TextBlock>
+        </StackPanel>
+
+        <TabControl Grid.Row="1" Background="{DynamicResource ApplicationBackgroundBrush}">
+            <TabItem Header="Описание" Background="{DynamicResource ApplicationBackgroundBrush}">
+                <TextBlock Text="{Binding Description}"/>
+            </TabItem>
+            <TabItem Header="События" Background="{DynamicResource ApplicationBackgroundBrush}">
+                <Grid Background="{DynamicResource SecondaryBackgroundBrush}">
+                    <ListView x:Name="SiteHistoryListView"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+          ItemsSource="{Binding SiteHistories}" 
+          BorderThickness="0"
+          SelectedItem="{Binding SelectedItem}"
+          Background="Transparent" 
+          d:ItemsSource="{d:SampleData ItemCount=5}" 
+          Margin="0,0,0,60">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="10" CornerRadius="8" 
+                    BorderThickness="1"
+                    Margin="10" 
+                    Background="{DynamicResource ApplicationBackgroundBrush}">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding EventDate, StringFormat=\{0:dd MMMM yyyy\}}"
+                               FontWeight="Bold" 
+                               FontSize="14" 
+                               Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
+                                        <TextBlock Text="{Binding EventDescription}" 
+                               FontSize="12" 
+                               Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
+                                        <Separator Margin="0,10,0,0" />
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                            <ui:Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource AncestorType=Page}}"
+                                   CommandParameter="{Binding}">
+                                                <ui:Button.Icon>
+                                                    <ui:SymbolIcon Symbol="Delete24"/>
+                                                </ui:Button.Icon>
+                                            </ui:Button>
+
+                                            <ui:Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource AncestorType=Page}}"
+                                   CommandParameter="{Binding}">
+                                                <ui:Button.Icon>
+                                                    <ui:SymbolIcon Symbol="Edit24"/>
+                                                </ui:Button.Icon>
+                                            </ui:Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5"/>
+                                    </Border.Effect>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ui:Button VerticalAlignment="Bottom" 
+                                Height="60" 
+                                HorizontalAlignment="Stretch" 
+                                Content="Добавить" 
+                                FontWeight="Bold" 
+                                Command="{Binding Add}">
+                        <ui:Button.Icon>
+                            <ui:SymbolIcon Symbol="Add24"/>
+                        </ui:Button.Icon>
+                    </ui:Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

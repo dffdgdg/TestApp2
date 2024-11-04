@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="TestApp.View.HistoricalSite.History.SiteHistoryUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestApp.View.HistoricalSite"
+             mc:Ignorable="d" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:Behaviors="clr-namespace:TestApp.Helpers" 
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+             Margin="-150"
+             Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+
+    <UserControl.Resources>
+        <Behaviors:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="30,0"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="209*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#4C808080" IsHitTestVisible="true" Grid.ColumnSpan="2">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding Close}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Grid>
+
+        <Border CornerRadius="16" Width="500" Height="260" Background="{DynamicResource ApplicationBackgroundBrush}" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.ColumnSpan="2" 
+                           HorizontalAlignment="Center" 
+                           FontWeight="Bold" 
+                           FontSize="24">
+                    <Run Text="История события"/>
+                </TextBlock>
+
+                <TextBlock Grid.Row="1"><Run Text="Дата события"/></TextBlock>
+                <DatePicker Grid.Row="1" Grid.Column="1" 
+                            Margin="10,0,30,0" 
+                            SelectedDate="{Binding SelHistory.EventDate, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode=TwoWay}"/>
+
+                <TextBlock Grid.Row="2" Margin="30,0,10,0"><Run Text="Описание"/></TextBlock>
+                <ui:TextBox Grid.Row="2" Height="35" MaxLength="250" 
+                             Grid.Column="1" Margin="10,0,30,0" 
+                             Text="{Binding SelHistory.EventDescription}"/>
+                
+                <ui:Button Grid.Row="3" Command="{Binding Save}" 
+                           FontWeight="Black" 
+                           Margin="30,10" 
+                           Grid.ColumnSpan="2" 
+                           VerticalAlignment="Stretch" 
+                           HorizontalAlignment="Stretch" 
+                           Appearance="Info" 
+                           Content="Сохранить"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

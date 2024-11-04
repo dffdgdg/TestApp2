@@ -1,0 +1,101 @@
+﻿<Page x:Class="TestApp.View.Account.AccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestApp.View.Account"
+      mc:Ignorable="d" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:Behaviors="clr-namespace:TestApp.Helpers"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+      xmlns:viewmodel="clr-namespace:TestApp.ViewModel"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Аккаунты" Margin="40,0"
+      Background="{DynamicResource SecondaryBackgroundBrush}"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+
+    <Page.DataContext>
+        <viewmodel:AccountVM/>
+    </Page.DataContext>
+
+    <Grid Margin="0,0,0,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ui:TextBlock Margin="10,20" 
+                       Text="Аккаунты" 
+                       FontSize="36" 
+                       FontWeight="Bold"/>
+
+        <ui:Button VerticalAlignment="Top" 
+                   Height="45" 
+                   Margin="0,20"
+                   Appearance="Info"
+                   HorizontalAlignment="Right" 
+                   Content="Добавить" 
+                   FontWeight="Bold"
+                   Command="{Binding Add}">
+            <ui:Button.Icon>
+                <ui:SymbolIcon Symbol="Add24"/>
+            </ui:Button.Icon>
+        </ui:Button>
+
+        <!-- Таблица пользователей -->
+        <DataGrid ItemsSource="{Binding Users}" 
+                  Margin="0,10,0,0"  
+                  SelectedItem="{Binding SelectedUser}" 
+                  RowHeaderWidth="0" 
+                  SelectionMode="Single" 
+                  HorizontalContentAlignment="Center" 
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False" 
+                  ColumnWidth="*"
+                  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Login}" Header="Логин"/>
+                <DataGridTextColumn Header="ФИО">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1} {2}">
+                            <Binding Path="Surname"/>
+                            <Binding Path="Name"/>
+                            <Binding Path="Midname"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding UsertypeNavigation.Name}" Header="Тип пользователя"/>
+                <DataGridTemplateColumn Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <ui:Button HorizontalAlignment="Center" 
+                                           Command="{Binding DataContext.Open, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                    <ui:Button.Icon>
+                                        <ui:SymbolIcon Symbol="Edit24"/>
+                                    </ui:Button.Icon>
+                                </ui:Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding Open}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
+
+        <TextBlock Text="{Binding Users.Count, StringFormat={}Всего аккаунтов: {0}}" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Bottom" 
+                   Margin="0,0,0,10" 
+                   Grid.Row="2"/>
+        
+        <local:AccountUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Grid}}"
+                         Grid.ColumnSpan="3" 
+                         Grid.RowSpan="3" 
+                         Visibility="{Binding UCVisibility}"/>
+    </Grid>
+</Page>

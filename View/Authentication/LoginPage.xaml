@@ -1,0 +1,61 @@
+﻿<Page x:Class="TestApp.View.Authentication.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+      xmlns:vm="clr-namespace:TestApp.ViewModel" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+      xmlns:Behaviors="clr-namespace:TestApp.Helpers"      
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+    <Page.DataContext>
+        <vm:LoginVM/>
+    </Page.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Grid.Column="0" 
+                    Grid.Row="1">
+            <Image Source="/Resources/logo.png" 
+                   Height="100" 
+                   Width="100"/>
+            <ui:TextBlock Text="Авторизация" 
+                          HorizontalAlignment="Center" 
+                          FontWeight="UltraBold" 
+                          FontSize="36" 
+                          Margin="0,20"/>
+            <ui:TextBlock Text="Добро пожаловать в TestApp." 
+                          HorizontalAlignment="Center" 
+                          FontSize="21"/>
+            <ui:TextBox Text="{Binding Username, Mode=TwoWay}" 
+                         PlaceholderText="Логин" 
+                         Margin="0,20,0,5"/>
+            <ui:PasswordBox PlaceholderText="Пароль" 
+                            Margin="0,5" Password="{Binding Password,Mode=TwoWay}">
+            </ui:PasswordBox>
+            <CheckBox Content="Запомнить пароль" 
+                      HorizontalAlignment="Center" IsChecked="{Binding SavePassword}"/>
+            <ui:Button Command="{Binding Authorize}" 
+                        Appearance="Info" 
+                        Content="Войти" 
+                        FontWeight="Bold" 
+                        Width="200" 
+                        HorizontalAlignment="Center"/>
+            <ui:HyperlinkButton Command="{Binding Register}" 
+                                Content="Зарегистрироваться" 
+                                HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Image Grid.RowSpan="2" 
+               Grid.Column="1" 
+               Source="/Resources/LogoBack.jpg" 
+               Stretch="UniformToFill" 
+               Panel.ZIndex="0"/>
+    </Grid>
+</Page>

@@ -1,0 +1,89 @@
+﻿<Page x:Class="TestApp.View.Authentication.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestApp.View.Authentication"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:vm="clr-namespace:TestApp.ViewModel"
+      xmlns:Behaviors="clr-namespace:TestApp.Helpers"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      mc:Ignorable="d"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+    <Page.Resources>
+        <Style TargetType="ui:TextBox" BasedOn="{StaticResource {x:Type ui:TextBox}}">
+            <Setter Property="ToolTip" Value="{Binding PlaceholderText, RelativeSource={RelativeSource Self}}"/>
+        </Style>
+        <Behaviors:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <vm:RegistrationVM/>
+    </Page.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Grid.Column="0" 
+                    Grid.Row="1">
+            <Image Source="/Resources/logo.png" 
+                   Height="100" 
+                   Width="100" 
+                   HorizontalAlignment="Center"/>
+            <ui:TextBlock Text="Регистрация" 
+                          HorizontalAlignment="Center" 
+                          FontWeight="UltraBold" 
+                          FontSize="36" 
+                          Margin="0,20"/>
+            <ui:TextBlock Text="Добро пожаловать в TestApp." 
+                          HorizontalAlignment="Center" 
+                          FontSize="21"/>
+            <ui:TextBox PlaceholderText="Фамилия" 
+                         Height="35" 
+                         Margin="0,5" 
+                         Text="{Binding LastName}"/>
+            <ui:TextBox PlaceholderText="Имя" 
+                         Height="35" 
+                         Margin="0,5" 
+                         Text="{Binding FirstName}"/>
+            <ui:TextBox PlaceholderText="Отчество" 
+                         Height="35" 
+                         Margin="0,5" 
+                         Text="{Binding MiddleName}"/>
+            <ui:TextBox PlaceholderText="Логин" 
+                         Height="35" 
+                         Margin="0,5" 
+                         Text="{Binding Login}"/>
+            <ui:PasswordBox PlaceholderText="Пароль" 
+                            Margin="0,5" 
+                            Height="35">
+                <i:Interaction.Behaviors>
+                    <Behaviors:PasswordBehavior Password="{Binding Password, Mode=TwoWay}" />
+                </i:Interaction.Behaviors>
+            </ui:PasswordBox>
+            <DatePicker Margin="0,5" 
+                         SelectedDate="{Binding BirthDate, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode=TwoWay}"/>
+            <ui:Button Appearance="Info" 
+                        Content="Зарегистрироваться" 
+                        Width="200" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,10" 
+                        Command="{Binding Registration}"/>
+            <ui:HyperlinkButton Content="Войти" 
+                                Command="{Binding Logining}" 
+                                HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Image Grid.RowSpan="2" 
+               Grid.Column="1" 
+               Source="/Resources/LogoBack.jpg" 
+               Stretch="UniformToFill" 
+               Panel.ZIndex="0"/>
+    </Grid>
+</Page>

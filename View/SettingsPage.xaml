@@ -1,0 +1,69 @@
+﻿<Page x:Class="TestApp.View.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" xmlns:viewmodel="clr-namespace:TestApp.ViewModel" 
+      d:DataContext="{d:DesignInstance Type=viewmodel:SettingsVM}"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Настройки">
+    <Page.DataContext>
+        <viewmodel:SettingsVM/>
+    </Page.DataContext>
+    <Grid Margin="42,0">
+        <StackPanel>
+            <ui:TextBlock Text="Настройки" FontSize="36" FontWeight="Bold" Margin="0,20"/>
+            <TextBlock FontSize="20" FontWeight="Medium" Text="Персонализация" />
+            <ui:CardControl Margin="0,5">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Color24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ui:TextBlock
+                        Grid.Row="0"
+                        FontTypography="Body"
+                        Text="Выберите режим" />
+                        <ui:TextBlock
+                        Grid.Row="1"
+                        Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                        Text="Изменение цветов, отображаемых в программе" />
+                    </Grid>
+                </ui:CardControl.Header>
+                <ComboBox Grid.Column="2" Width="150"  
+SelectedIndex="{Binding SelectedTheme, Mode=TwoWay}">
+                    <ComboBoxItem Content="Светлый"/>
+                    <ComboBoxItem Content="Тёмный"/>
+                </ComboBox>
+            </ui:CardControl>
+            <TextBlock Margin="0,24,0,0" FontSize="20" FontWeight="Medium" Text="О программе" />
+            <ui:CardControl Margin="0,5">
+                <ui:CardControl.Icon>
+                    <ui:ImageIcon Source="/Resources/logo.png" Height="64"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBlock
+                            Grid.Column="0"
+                            FontTypography="Body"
+                            Text="TestApp" />
+                        <ui:TextBlock
+                            Grid.Column="1"
+                            Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                            Text="Версия 1.0" />
+                    </Grid>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+        </StackPanel>
+    </Grid>
+</Page>
