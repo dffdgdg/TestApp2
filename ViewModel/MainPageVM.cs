@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Windows.Controls;
 using TestApp.View.Account;
 using TestApp.View.District;
-using TestApp.Helpers;
+using TestApp.Services;
 
 namespace TestApp.ViewModel
 {
@@ -13,11 +13,11 @@ namespace TestApp.ViewModel
         public ICommand NavigateCommand { get; }
         public ICommand GoBackCommand { get; }
         public ICommand GoForwardCommand { get; }
-
-        public MainPageVM(Frame frame, int userId, int userType)
+        private NavigationService mainService;
+        public MainPageVM(Frame frame, int userId, int userType, NavigationService mainService)
         {
+            this.mainService = mainService;
             service = new NavigationService(frame);
-
             NavigateCommand = new RelayCommand<string>(Navigate);
             GoBackCommand = new RelayCommand(GoBack);
             GoForwardCommand = new RelayCommand(GoForward);
@@ -41,7 +41,7 @@ namespace TestApp.ViewModel
                     service.Navigate(typeof(ReportPage));
                     break;
                 case "Профиль":
-                    ProfileVM profileVM = new(userId);
+                    ProfileVM profileVM = new(userId, mainService);
                     service.Navigate(typeof(ProfilePage), profileVM);
                     break;
                 case "Настройки":

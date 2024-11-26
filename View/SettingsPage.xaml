@@ -12,7 +12,7 @@
     <Page.DataContext>
         <viewmodel:SettingsVM/>
     </Page.DataContext>
-    <Grid Margin="42,0">
+    <Grid Margin="40,30,40,0">
         <StackPanel>
             <ui:TextBlock Text="Настройки" FontSize="36" FontWeight="Bold" Margin="0,20"/>
             <TextBlock FontSize="20" FontWeight="Medium" Text="Персонализация" />

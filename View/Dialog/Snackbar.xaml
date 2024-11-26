@@ -4,16 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              x:Name="SnackbarControl"
              Height="75"
-             Opacity="0">
+             Opacity="1">
     <Grid>
-        <Border Background="{DynamicResource ControlFillColorDefaultBrush}" CornerRadius="5" Margin="0,0,0,20" >
+        <Border Margin="0,0,0,20">
             <Border.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2" />
+                <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="3" Opacity="0.3" />
             </Border.Effect>
-            <TextBlock Text="{Binding Message, ElementName=SnackbarControl}" 
-                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center"/>
+            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" 
+                    BorderBrush="{DynamicResource CardBorderBrush}" 
+                    CornerRadius="5" 
+                    Margin="0">
+                <TextBlock Text="{Binding Message, ElementName=SnackbarControl}" 
+                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
+            </Border>
         </Border>
     </Grid>
-</UserControl>
+    </UserControl>

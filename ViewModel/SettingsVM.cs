@@ -12,8 +12,7 @@ namespace TestApp.ViewModel
             get => _selectedTheme;
             set
             {
-                if (SetProperty(ref _selectedTheme, value))
-                    UpdateTheme();
+                if (SetProperty(ref _selectedTheme, value)) UpdateTheme();
             }
         }
 
@@ -33,17 +32,16 @@ namespace TestApp.ViewModel
             switch (SelectedTheme)
             {
                 case 0:
-                    ApplicationThemeManager.Apply(ApplicationTheme.Light);
+                    ApplicationThemeManager.Apply(ApplicationTheme.Light, Wpf.Ui.Controls.WindowBackdropType.Tabbed );
                     AppSettings.Default.Theme = "Light";
                     AppSettings.Default.Save();
                     break;
                 case 1:
-                    ApplicationThemeManager.Apply(ApplicationTheme.Dark);
+                    ApplicationThemeManager.Apply(ApplicationTheme.Dark, Wpf.Ui.Controls.WindowBackdropType.Mica);
                     AppSettings.Default.Theme = "Dark";
                     AppSettings.Default.Save();
                     break;
             }
         }
-
     }
 }

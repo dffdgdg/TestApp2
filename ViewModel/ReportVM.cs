@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.ObjectModel;
+using System.Drawing;
+using System.IO;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +15,26 @@ namespace TestApp.ViewModel
         private readonly TestDbContext _dbContext;
 
         public ICommand GenerateReportCommand { get; private set; }
+        public ObservableCollection<Model.District> Districts { get; set; }
+        private District _selectedDistrict;
 
+        public District SelectedDistrict
+        {
+            get => _selectedDistrict;
+            set
+            {
+                _selectedDistrict = value;
+                OnPropertyChanged();
+            }
+        }
         public ReportVM()
         {
             _dbContext = new TestDbContext();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             GenerateReportCommand = new RelayCommand(async () => await GenerateReportAsync());
+            Districts = new ObservableCollection<District>([.. _dbContext.Districts]);
+            Districts.Insert(0, new District() { Name = "Все регионы" });
+            SelectedDistrict = Districts.First();
         }
 
         public async Task GenerateReportAsync()
@@ -48,31 +64,32 @@ namespace TestApp.ViewModel
         {
             var results = await _dbContext.Users
                 .Include(u => u.Userresults)
+                .ThenInclude(ur => ur.TestNavigation)
+                .Where(u => SelectedDistrict.Name == "Все регионы" ||
+                    u.Userresults.Any(ur => ur.TestNavigation.District == SelectedDistrict.Id)) 
                 .Select(u => new
                 {
                     AgeGroup = GetAgeGroup(u.Birthdate),
                     TotalTests = u.Userresults.Count(),
-                    TotalScore = u.Userresults.Sum(ur => ur.Score) // Максимально 100 за тест
+                    TotalScore = u.Userresults.Sum(ur => ur.Score)
                 })
                 .ToListAsync();
 
-            // Группируем по возрастной группе и исключаем группы с нулевыми тестами
             var groupedResults = results
                 .GroupBy(r => r.AgeGroup)
-                .Where(g => g.Sum(x => x.TotalTests) > 0) // Исключаем группы с 0 тестами
+                .Where(g => g.Sum(x => x.TotalTests) > 0) 
                 .Select(g =>
                 {
                     var totalTests = g.Sum(x => x.TotalTests);
                     var totalScore = g.Sum(x => x.TotalScore);
 
-                    // Рассчитываем процент правильных ответов
-                    double percentCorrect = totalTests > 0 ? (totalScore / (double)(totalTests * 100)) * 100 : 0;
+                    double percentCorrect = totalTests > 0 ? (totalScore / (totalTests * 100)) * 100 : 0;
 
                     return new Tuple<string, int, double, double>(
                         g.Key,
                         totalTests,
                         totalScore,
-                        percentCorrect // Добавляем процент правильных ответов
+                        percentCorrect
                     );
                 })
                 .ToList();

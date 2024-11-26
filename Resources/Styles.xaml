@@ -1,0 +1,106 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                    xmlns:converters="clr-namespace:TestApp.Converters" 
+                    xmlns:behaviors="clr-namespace:TestApp.Behaviors">
+    <Style x:Key="MouseOverOpacityStyle" TargetType="Grid">
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.7" Duration="0:0:0.2" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.7" To="1" Duration="0:0:0.2" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Border" x:Key="Card">
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="Background" Value="{DynamicResource CardBackground}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}"/>
+        <Setter Property="IsHitTestVisible" Value="True"/>
+    </Style>
+    
+    <Style x:Key="IconRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="GroupName" Value="nav"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Command" Value="{Binding NavigateCommand}"/>
+        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="2" BorderBrush="Transparent">
+                        <Grid>
+                            <Border x:Name="Accent" Visibility="Collapsed" VerticalAlignment="Center" Height="30" HorizontalAlignment="Left" Margin="0,3" Width="3" Background="{DynamicResource AccentTextFillColorPrimaryBrush}" CornerRadius="1"/>
+                            <Viewbox>
+                                <ui:SymbolIcon Margin="0,5,0,15" 
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" 
+                                           x:Name="Symbol" 
+                                           Symbol="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Content}">
+                                    <ui:SymbolIcon.RenderTransform>
+                                        <TranslateTransform X="0" Y="0" />
+                                    </ui:SymbolIcon.RenderTransform>
+                                </ui:SymbolIcon>
+                            </Viewbox>
+                            <Viewbox Margin="0,5" VerticalAlignment="Bottom">
+                                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" 
+                                       x:Name="SymbolTxt" 
+                                       Text="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Tag}" 
+                                       HorizontalAlignment="Center" 
+                                       MaxWidth="70" 
+                                       TextTrimming="CharacterEllipsis" 
+                                       TextAlignment="Center" />
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundPointerOver}"/>
+                            <Setter TargetName="Symbol" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Symbol" Property="Margin" Value="0,5,0,8"/>
+                            <Setter TargetName="Symbol" Property="Foreground" Value="{DynamicResource AccentTextFillColorPrimaryBrush}"/>
+                            <Setter TargetName="Symbol" Property="Filled" Value="true"/>
+                            <Setter TargetName="SymbolTxt" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="Accent" Property="Visibility" Value="Visible"/>
+                            <Setter Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelected}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Accent" Storyboard.TargetProperty="Opacity" 
+                                                     From="0" To="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="Accent" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" 
+                                                     From="-10" To="0" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="Symbol" Storyboard.TargetProperty="Opacity" 
+                                                     From="0" To="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="Symbol" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" 
+                                                     From="15" To="0" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

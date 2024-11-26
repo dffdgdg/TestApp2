@@ -1,0 +1,98 @@
+﻿<Page x:Class="TestApp.View.Test.TestAddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestApp.View.Test" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TestAddPage">
+
+    <Grid Margin="40,20">
+        <StackPanel>
+            <TextBlock Text="Добавление теста" 
+                       FontSize="36" 
+                       FontWeight="Bold" 
+                       Margin="0,20,0,20"/>
+            <ui:TextBox Text="{Binding Test.Title, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20" PlaceholderText="Введите наименование"  />
+            <ui:TextBox Text="{Binding Test.Description, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20" PlaceholderText="Введите краткое описание теста"  />
+            <StackPanel Orientation="Horizontal">
+                <ui:Button Content="Выбрать изображение" Command="{Binding LoadImage}">
+                    <ui:Button.Icon>
+                        <ui:SymbolIcon Symbol="DrawerArrowDownload24"/>
+                    </ui:Button.Icon>
+                </ui:Button>
+                <ui:Button Content="Добавить вопрос" Margin="5,0" Command="{Binding AddQuestionCommand}">
+                    <ui:Button.Icon>
+                        <ui:SymbolIcon Symbol="Add24"/>
+                    </ui:Button.Icon>
+                </ui:Button>
+                <ui:Button Content="Сохранить" Command="{Binding SaveTestCommand}" Appearance="Info">
+                    <ui:Button.Icon>
+                        <ui:SymbolIcon Symbol="Save24"/>
+                    </ui:Button.Icon>
+                </ui:Button>
+            </StackPanel>
+            <TextBlock Text="Вопросы" 
+                       FontSize="20" 
+                       FontWeight="SemiBold" 
+                       Margin="0,10,0,5"/>
+            <ui:NavigationViewItemSeparator/>
+            <ListView ItemsSource="{Binding Questions}" SelectedItem="{Binding SelectedQuestion}" Background="Transparent" BorderThickness="0" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ui:TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="455" PlaceholderText="Вопрос" Margin="0,5" />
+                                            <ui:Button
+                                    Command="{Binding DataContext.RemoveQuestionCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}" 
+                                    CommandParameter="{Binding}" Margin="5,5" Appearance="Danger">
+                                                <ui:Button.Icon>
+                                                    <ui:SymbolIcon Symbol="Delete24"/>
+                                                </ui:Button.Icon>
+                                            </ui:Button>
+                                        </StackPanel>
+                                        <ListView ItemsSource="{Binding Answers}" Margin="0,5" Background="Transparent" BorderThickness="0">
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+                                                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                                                    <ui:TextBox Width="300" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Вариант ответа"/>
+                                                                    <CheckBox Content="Ответ" IsChecked="{Binding IsCorrect}" Margin="5,0"/>
+                                                                    <ui:Button Grid.Column="2" HorizontalAlignment="Left" Appearance="Danger" 
+                                                       Command="{Binding DataContext.RemoveAnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}" 
+                                                       CommandParameter="{Binding}">
+                                                                        <ui:Button.Icon>
+                                                                            <ui:SymbolIcon Symbol="Delete24"/>
+                                                                        </ui:Button.Icon>
+                                                                    </ui:Button>
+                                                                </StackPanel>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+                                        <ui:Button Content="Добавить ответ" 
+                                    Command="{Binding DataContext.AddAnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}" 
+                                    CommandParameter="{Binding}" Margin="0,5">
+                                            <ui:Button.Icon>
+                                                <ui:SymbolIcon Symbol="Add24"/>
+                                            </ui:Button.Icon>  
+                                        </ui:Button>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

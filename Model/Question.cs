@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿    using System;
+    using System.Collections.Generic;
 
-namespace TestApp.Model;
+    namespace TestApp.Model;
 
-public partial class Question
-{
-    public int Id { get; set; }
+    public partial class Question
+    {
+        public int Id { get; set; }
 
-    public int? TestId { get; set; }
+        public int Test { get; set; }
 
-    public string QuestionText { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
-    public string? ImageUrl { get; set; }
+        public byte[]? Image { get; set; }
 
-    public string QuestionType { get; set; } = null!;
+        public int Type { get; set; }
 
-    public int? QuestionNumber { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; } = new List<Answer>();
 
-    public virtual ICollection<Answer> Answers { get; set; } = new ObservableCollection<Answer>();
-
-    public virtual Test? Test { get; set; }
-}
+        public virtual Test TestNavigation { get; set; } = null!;
+    }

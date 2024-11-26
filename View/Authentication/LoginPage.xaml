@@ -4,7 +4,6 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
       xmlns:vm="clr-namespace:TestApp.ViewModel" 
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-      xmlns:Behaviors="clr-namespace:TestApp.Helpers"      
       Foreground="{DynamicResource TextFillColorPrimaryBrush}">
     <Page.DataContext>
         <vm:LoginVM/>
@@ -54,8 +53,8 @@
         </StackPanel>
         <Image Grid.RowSpan="2" 
                Grid.Column="1" 
-               Source="/Resources/LogoBack.jpg" 
-               Stretch="UniformToFill" 
+               Source="/Resources/login.jpg" 
+               Stretch="UniformToFill" HorizontalAlignment="Right"
                Panel.ZIndex="0"/>
     </Grid>
 </Page>

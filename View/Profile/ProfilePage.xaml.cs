@@ -4,8 +4,5 @@ namespace TestApp.View;
 
 public partial class ProfilePage : Page
 {
-    public ProfilePage()
-    {
-        InitializeComponent();
-    }
+    public ProfilePage() => InitializeComponent();
 }

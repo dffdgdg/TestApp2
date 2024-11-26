@@ -6,15 +6,15 @@
       xmlns:local="clr-namespace:TestApp.View.Authentication"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:vm="clr-namespace:TestApp.ViewModel"
-      xmlns:Behaviors="clr-namespace:TestApp.Helpers"
-      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+      xmlns:converters="clr-namespace:TestApp.Converters" xmlns:behaviors="clr-namespace:TestApp.Behaviors"
       mc:Ignorable="d"
       Foreground="{DynamicResource TextFillColorPrimaryBrush}">
     <Page.Resources>
         <Style TargetType="ui:TextBox" BasedOn="{StaticResource {x:Type ui:TextBox}}">
             <Setter Property="ToolTip" Value="{Binding PlaceholderText, RelativeSource={RelativeSource Self}}"/>
         </Style>
-        <Behaviors:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter"/>
+        <converters:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter"/>
     </Page.Resources>
     <Page.DataContext>
         <vm:RegistrationVM/>
@@ -65,7 +65,7 @@
                             Margin="0,5" 
                             Height="35">
                 <i:Interaction.Behaviors>
-                    <Behaviors:PasswordBehavior Password="{Binding Password, Mode=TwoWay}" />
+                    <behaviors:PasswordBehavior Password="{Binding Password, Mode=TwoWay}" />
                 </i:Interaction.Behaviors>
             </ui:PasswordBox>
             <DatePicker Margin="0,5" 

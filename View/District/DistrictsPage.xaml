@@ -1,43 +1,38 @@
-﻿<Page x:Class="TestApp.View.District.DistrictsPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+﻿<Page x:Class="TestApp.View.District.DistrictsPage" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
       xmlns:local="clr-namespace:TestApp.View.District" 
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
-      xmlns:vm="clr-namespace:TestApp.ViewModel" xmlns:converters="clr-namespace:TestApp.Helpers"
-      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-      Margin="40,0">
-    <Page.Resources>
-        <converters:BoolToVisibilityConverter x:Key="BoolConv"/>
-    </Page.Resources>
+      xmlns:vm="clr-namespace:TestApp.ViewModel" 
+      xmlns:converters="clr-namespace:TestApp.Converters" 
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}" Margin="40,30,40,0">
     <Grid>
-        <ui:TextBlock Margin="10,20" Text="Регионы" FontSize="36" FontWeight="Bold"/>
-
+        <ui:TextBlock Margin="10,20" Text="Регионы" FontSize="32" FontWeight="DemiBold"/>
         <ui:Button VerticalAlignment="Top" 
-                   Height="45" 
-                   Margin="0,20" 
-                   Appearance="Info"
-                   HorizontalAlignment="Right" 
-                   Content="Добавить" 
-                   FontWeight="Bold" 
-                   Command="{Binding Add}"
-                   Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}">
+               Height="45" 
+               Margin="0,20" 
+               Appearance="Info"
+               HorizontalAlignment="Right" 
+               Content="Добавить" 
+               FontWeight="Bold" 
+               Command="{Binding Add}"
+               >
             <ui:Button.Icon>
                 <ui:SymbolIcon Symbol="Add24"/>
             </ui:Button.Icon>
         </ui:Button>
 
         <ListView x:Name="Districts" 
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                  Margin="0,70,0,10" 
-                  ItemsSource="{Binding Districts}" 
-                  SelectedItem="{Binding SelectedItem}" 
-                  Background="Transparent" 
-                  Height="auto"
-                  Width="auto"
-                  BorderThickness="0">
+              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+              Margin="0,70,0,10" 
+              ItemsSource="{Binding Districts}" 
+              Background="Transparent" 
+              Height="auto"
+              Width="auto"
+              BorderThickness="0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" />
@@ -48,24 +43,18 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="ListViewItem">
-                                <Grid Height="250" Width="200" Margin="10">
-                                    <Border CornerRadius="6" 
-                                            BorderThickness="1" 
-                                            IsHitTestVisible="True" 
-                                            Background="{DynamicResource ControlFillColorDefaultBrush}">
-                                        <Border.Effect>
-                                            <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5"/>
-                                        </Border.Effect>
+                                <Grid Height="250" Width="200" Margin="10" Style="{DynamicResource MouseOverOpacityStyle}">
+                                    <Border Style="{DynamicResource Card}">
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="PreviewMouseDown">
-                                                <i:InvokeCommandAction Command="{Binding DataContext.Open, RelativeSource={RelativeSource AncestorType=Page}}" />
+                                                <i:InvokeCommandAction Command="{Binding DataContext.Open, RelativeSource={RelativeSource AncestorType=Page}}" CommandParameter="{Binding}"/>
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                         <Grid>
                                             <Image Source="{Binding Image}" 
-                                                   Margin="0,0,0,150" 
-                                                   Stretch="UniformToFill"/>
-                                            <Rectangle Opacity="1" Margin="0,0,0,150" VerticalAlignment="Bottom" Height="20">
+                                               Margin="0,0,0,150" IsHitTestVisible="False" 
+                                               Stretch="UniformToFill"/>
+                                            <Rectangle IsHitTestVisible="False" Opacity="1" Margin="0,0,0,150" VerticalAlignment="Bottom" Height="20">
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                                         <GradientStop Color="Transparent" Offset="0.0"/>
@@ -73,31 +62,39 @@
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
+
                                             <ui:TextBlock Text="{Binding Name}" 
-                                                       Foreground="White" 
-                                                       FontWeight="Bold" 
-                                                       FontSize="16" 
-                                                       Margin="10,75,10,0" 
-                                                       IsHitTestVisible="False"/>
+                                                   Foreground="White" 
+                                                   FontWeight="Bold" 
+                                                   FontSize="16" 
+                                                   Margin="10,75,10,0" 
+                                                   IsHitTestVisible="False">
+                                                <ui:TextBlock.Effect>
+                                                    <DropShadowEffect ShadowDepth="0" Color="Black" Opacity="1" BlurRadius="5"/>
+                                                </ui:TextBlock.Effect>
+                                            </ui:TextBlock>
                                             <TextBlock Text="{Binding Description}" 
-                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"  
-                                                       FontSize="14" 
-                                                       TextWrapping="WrapWithOverflow" 
-                                                       Margin="10,100,10,25" 
-                                                       IsHitTestVisible="False"/>
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"  
+                                                   FontSize="14" 
+                                                   TextWrapping="WrapWithOverflow" 
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Margin="10,100,10,25" 
+                                                   IsHitTestVisible="False"/>
                                         </Grid>
                                     </Border>
                                     <StackPanel Orientation="Horizontal" 
-                                                VerticalAlignment="Bottom" 
-                                                HorizontalAlignment="Right">
+                                            VerticalAlignment="Bottom" 
+                                            HorizontalAlignment="Right">
                                         <ui:Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                   CommandParameter="{Binding}" Visibility="{Binding DataContext.IsWorker, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource BoolConv}}">
+                                               CommandParameter="{Binding}" 
+                                               >
                                             <ui:Button.Icon>
                                                 <ui:SymbolIcon Symbol="Delete24"/>
                                             </ui:Button.Icon>
                                         </ui:Button>
                                         <ui:Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                   CommandParameter="{Binding}" Visibility="{Binding DataContext.IsWorker, RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource BoolConv}}">
+                                               CommandParameter="{Binding}" 
+                                               >
                                             <ui:Button.Icon>
                                                 <ui:SymbolIcon Symbol="Edit24"/>
                                             </ui:Button.Icon>
@@ -110,10 +107,5 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        
-        <local:DistinctUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
-                          VerticalAlignment="Stretch" 
-                          HorizontalAlignment="Stretch" 
-                          Visibility="{Binding UCVisibility}"/>
     </Grid>
 </Page>

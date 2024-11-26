@@ -3,18 +3,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" xmlns:viewmodel="clr-namespace:TestApp.ViewModel"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" xmlns:local="clr-namespace:TestApp.View.Profile"
       Background="{DynamicResource SecondaryBackgroundBrush}"
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Профиль">
-    <Grid Margin="42,0">
-        <StackPanel>
+    <Grid>
+        <StackPanel Margin="40,30,40,0">
             <ui:TextBlock Text="Профиль" FontSize="36" FontWeight="Bold" Margin="0,20"/>
-
-            <!-- User Info Section -->
-            <Border CornerRadius="8" Background="{DynamicResource ApplicationBackgroundBrush}" Padding="20">
+            <Border Style="{DynamicResource Card}" Padding="20">
                 <StackPanel Orientation="Horizontal">
                     <Border Width="80" Height="80" Margin="0,0,20,0" Background="{DynamicResource AccentFillColorDefaultBrush}" CornerRadius="40">
                         <ui:SymbolIcon Symbol="Person24" FontSize="60" Foreground="White"/>
@@ -29,20 +27,17 @@
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
-                        <ui:Button Content="Изменить">
+                        <ui:Button Content="Изменить" Command="{Binding ChangeName}">
                             <ui:Button.Icon>
                                 <ui:SymbolIcon Symbol="Edit24"/>
                             </ui:Button.Icon>
                         </ui:Button>
                     </StackPanel>
                 </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5"/>
-                </Border.Effect>
             </Border>
 
             <!-- Profile Points Section -->
-            <Border CornerRadius="8" Background="{DynamicResource ApplicationBackgroundBrush}" Padding="20" Margin="0,20,0,0">
+            <Border Style="{DynamicResource Card}" Padding="20" Margin="0,20,0,0">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <TextBlock FontSize="20" FontWeight="Bold" Text="Баллы профиля" />
@@ -57,37 +52,39 @@
                         <TextBlock FontSize="34" HorizontalAlignment="Center" FontWeight="Bold" Text="{Binding CompletedTests}" Foreground="{DynamicResource AccentFillColorDefaultBrush}" />
                     </StackPanel>
                 </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5"/>
-                </Border.Effect>
             </Border>
 
             <!-- Email Section -->
-            <Border CornerRadius="8" Background="{DynamicResource ApplicationBackgroundBrush}" Padding="20" Margin="0,20,0,0">
+            <Border Style="{DynamicResource Card}" Padding="20" Margin="0,20,0,0">
                 <StackPanel>
-                    <TextBlock FontSize="20" FontWeight="Bold" Text="Электронная почта" />
-                    <TextBlock FontSize="20" Margin="5,10" Text="{Binding CurUser.Username}" />
+                    <TextBlock FontSize="20" FontWeight="Bold" Text="Логин" />
+                    <TextBlock FontSize="20" Margin="5,10" Text="{Binding CurUser.Login}" />
                 </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5"/>
-                </Border.Effect>
             </Border>
 
             <!-- Password Section -->
             <TextBlock FontSize="20" FontWeight="Bold" Text="Пароль" Margin="0,20,0,0" />
-            <ui:Button Content="Изменить пароль" Background="{DynamicResource AccentButtonBackground}">
+            <ui:Button Content="Изменить пароль" Command="{Binding ChangePassword}" Background="{DynamicResource AccentButtonBackground}">
                 <ui:Button.Icon>
                     <ui:SymbolIcon Symbol="Edit24"/>
                 </ui:Button.Icon>
             </ui:Button>
 
             <!-- Logout Section -->
-            <TextBlock FontSize="20" FontWeight="Bold" Text="Выход" Margin="0,20,0,0" />
-            <ui:Button Content="Выйти" Background="{DynamicResource PaletteRedBrush}">
+            <TextBlock FontSize="20" FontWeight="Bold" Text="Выход" Margin="0,20,30,0" />
+            <ui:Button Content="Выйти" Background="{DynamicResource PaletteRedBrush}" Command="{Binding Logout}">
                 <ui:Button.Icon>
                     <ui:SymbolIcon Symbol="ArrowExit20"/>
                 </ui:Button.Icon>
             </ui:Button>
         </StackPanel>
+        <local:FIOUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
+                      VerticalAlignment="Stretch" 
+                      HorizontalAlignment="Stretch" 
+                      Visibility="{Binding UCVisibility}"/>
+        <local:ChangePasswordUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
+                      VerticalAlignment="Stretch" 
+                      HorizontalAlignment="Stretch" 
+                      Visibility="{Binding PasUcVisibility}"/>
     </Grid>
 </Page>

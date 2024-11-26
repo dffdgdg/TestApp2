@@ -1,20 +1,14 @@
-﻿using TestApp.Model.Classes;
+﻿using TestApp.Services;
 using TestApp.ViewModel;
-using Wpf.Ui.Appearance;
 
-namespace TestApp
+namespace TestApp;
+
+public partial class MainWindow
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            DataContext = new MainWindowVM();
-            Navigation.ContainerFrame = MainFrame;
-            Navigation.Initialize(SnackbarControl);
-        }
+        InitializeComponent();
+        DataContext = new MainWindowVM(MainFrame);
+        Navigation.Initialize(SnackbarControl);
     }
 }

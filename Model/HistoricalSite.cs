@@ -11,11 +11,9 @@ public partial class HistoricalSite
 
     public int District { get; set; }
 
-    public string? Description { get; set; }
+    public string Description { get; set; } = null!;
 
-    public DateOnly? ConstructionDate { get; set; }
-
-    public DateTime? Timestamp { get; set; }
+    public DateOnly ConstructionDate { get; set; }
 
     public byte[]? Image { get; set; }
 

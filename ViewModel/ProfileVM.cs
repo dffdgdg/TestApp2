@@ -2,18 +2,32 @@
 using System.Windows;
 using System.Windows.Input;
 using TestApp.Model;
-using TestApp.Model.Classes;
+using TestApp.Services;
 using TestApp.View.Authentication;
+using TestApp.ViewModel.Base;
 
 namespace TestApp.ViewModel
 {
-    public class ProfileVM : BaseViewModel
+    public class ProfileVM : BaseUserControlViewModel
     {
         private string _email, _passwordCheck;
         private double _totalPoints;
         private int _completedTests;
         private double _averageScore;
+        private string _oldPassword;
+        private string _newPassword;
 
+        public string OldPassword
+        {
+            get => _oldPassword;
+            set => SetProperty(ref _oldPassword, value);
+        }
+
+        public string NewPassword
+        {
+            get => _newPassword;
+            set => SetProperty(ref _newPassword, value);
+        }
         private User _curUser;
         public User CurUser
         {
@@ -24,6 +38,9 @@ namespace TestApp.ViewModel
                 UpdateMetrics();
             }
         }
+        public ICommand ChangePasswordCommand => new RelayCommand(OnChangePasswordCommand);
+        public ICommand ChangeNameCommand => new RelayCommand(OnChangeNameCommand);
+
         private Visibility _pasVisibility = Visibility.Collapsed;
         public Visibility PasUcVisibility { get => _pasVisibility; set => SetProperty(ref _pasVisibility, value); }
         private User _selUser;
@@ -64,13 +81,15 @@ namespace TestApp.ViewModel
         public ICommand Logout { get; }
         public ICommand ClosePasUC { get; }
 
-        public ProfileVM(int userId)
+        public ProfileVM(int userId, NavigationService service)
         {
+            if (service == null) MessageBox.Show("");
+            this.service = service;
             this.userId = userId;
-            ChangeName = new RelayCommand(onChangeName);
-            ChangePassword = new RelayCommand(onChangePassword);
-            Logout = new RelayCommand(onLogout);
-            ClosePasUC = new RelayCommand(onClosePasUC);
+            ChangeName = new RelayCommand(OnChangeName);
+            ChangePassword = new RelayCommand(OnChangePassword);
+            Logout = new RelayCommand(OnLogout);
+            ClosePasUC = new RelayCommand(OnClosePasUC);
             LoadUserData();
         }
 
@@ -83,14 +102,14 @@ namespace TestApp.ViewModel
         private void UpdateMetrics()
         {
             using var db = new TestDbContext();
-            var userResults = db.Userresults.Where(u => u.Userid == CurUser.Id);
+            var userResults = db.Userresults.Where(u => u.User == CurUser.Id);
             TotalPoints = (double)userResults.Sum(u => u.Score);
             CompletedTests = userResults.Count();
             AverageScore = CompletedTests > 0 ? (double)TotalPoints / CompletedTests : 0; 
         }
 
 
-        private void onChangeName()
+        private void OnChangeName()
         {
             SelUser = new User
             {
@@ -100,13 +119,21 @@ namespace TestApp.ViewModel
                 Midname = CurUser.Midname,
                 Password = CurUser.Password 
             };
+            NewPassword = "";
             UCVisibility = Visibility.Visible;
         }
-        private void onClosePasUC()
+        protected void OnClosePasUC()
         {
+            PasUcVisibility = Visibility.Collapsed;
             UCVisibility = Visibility.Collapsed;
         }
-        private void onChangePassword()
+
+        protected override void OnClose()
+        {
+            UCVisibility = Visibility.Collapsed;
+            PasUcVisibility = Visibility.Collapsed;
+        }
+        private void OnChangePassword()
         {
             SelUser = new User
             {
@@ -116,26 +143,53 @@ namespace TestApp.ViewModel
                 Midname = CurUser.Midname,
                 Password = CurUser.Password
             };
+            OldPassword = "";
+            NewPassword = "";
             PasUcVisibility = Visibility.Visible;
         }
 
-        private void SaveChanges(bool isNameChange)
+        private void OnChangePasswordCommand()
         {
-            using var db = new TestDbContext();
-            if (SelUser.Password == PasswordCheck)
+            try
             {
-                db.Users.Update(SelUser);
-                CurUser = SelUser;
-                db.SaveChanges();
-                ShowMessage("Изменение прошло успешно!", isNameChange ? "Изменение ФИО" : "Изменение пароля");
+                using var db = new TestDbContext();
+                if (db.CheckPassword(CurUser.Login, OldPassword))
+                {
+                    CurUser.Password = NewPassword;
+                    db.Update(CurUser);
+                    db.SaveChanges();
+                    ShowPopup("Сохранение прошло успешно");
+                }
+                else ShowMessage("Ошибка изменения", "Изменение пароля");
             }
-            else
-                ShowMessage("Пароли не совпадают", isNameChange ? "Изменение ФИО" : "Изменение пароля");
+            catch(Exception ex) { ShowMessage(ex.ToString()); }
         }
-
-        private void onLogout()
+        private void OnChangeNameCommand()
         {
-            Navigation.ContainerFrame.Navigate(typeof(LoginPage));
+            try
+            {
+                using var db = new TestDbContext();
+                if (db.CheckPassword(CurUser.Login, NewPassword))
+                {
+                    CurUser.Name = SelUser.Name;
+                    CurUser.Surname = SelUser.Surname;
+                    CurUser.Midname = SelUser.Midname;
+                    db.Users.Update(CurUser);
+                    db.SaveChanges();
+                    LoadUserData();
+                    ShowPopup("Сохранение прошло успешно");
+                }
+                else ShowError("Ошибка изменения", "Изменение ФИО");
+            }
+            catch(Exception ex)
+            {
+                ShowError(ex.ToString());
+            }
+        }
+        private void OnLogout()
+        {
+            LoginVM vm = new();
+            service.Navigate(typeof(LoginPage), vm);
         }
     }
 }

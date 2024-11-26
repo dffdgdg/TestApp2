@@ -3,21 +3,97 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TestApp.View"
+      xmlns:local="clr-namespace:TestApp.View" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Результаты теста"       
       Foreground="{DynamicResource TextFillColorPrimaryBrush}">
-    <Grid Margin="42,0">
-        <StackPanel Orientation="Vertical" >
-            <TextBlock Text="Результаты теста" FontSize="24" FontWeight="Bold" Margin="0,10"/>
+    <Grid MaxWidth="800" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ui:TextBlock Grid.Row="0" 
+                     Text="Результаты теста" 
+                     FontSize="28"
+                     FontWeight="Bold" 
+                     Margin="0,20,0,10"
+                     TextAlignment="Center"/>
+
+        <Separator Grid.Row="1" Margin="0,10"/>
+
+        <!-- Основная информация -->
+        <StackPanel Grid.Row="2" Margin="0,20" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Margin="0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Количество вопросов -->
+                <ui:TextBlock Grid.Row="0" Grid.Column="0"
+                             Text="Количество вопросов:"
+                             FontSize="16"
+                             Margin="0,0,15,15"/>
+                <ui:TextBlock Grid.Row="0" Grid.Column="1"
+                             Text="{Binding TotalQuestions}"
+                             FontSize="16"
+                             FontWeight="SemiBold"
+                             Margin="0,0,0,15"/>
+
+                <!-- Общее количество баллов -->
+                <ui:TextBlock Grid.Row="1" Grid.Column="0"
+                             Text="Общее количество баллов:"
+                             FontSize="16"
+                             Margin="0,0,15,15"/>
+                <ui:TextBlock Grid.Row="1" Grid.Column="1"
+                             Text="{Binding TotalScore, StringFormat={}{0:F1}}"
+                             FontSize="16"
+                             FontWeight="SemiBold"
+                             Margin="0,0,0,15"/>
+
+                <!-- Дата прохождения -->
+                <ui:TextBlock Grid.Row="2" Grid.Column="0"
+                             Text="Дата прохождения:"
+                             FontSize="16"
+                             Margin="0,0,15,15"/>
+                <ui:TextBlock Grid.Row="2" Grid.Column="1"
+                             Text="{Binding CompletionDate, StringFormat={}{0:dd.MM.yyyy HH:mm}}"
+                             FontSize="16"
+                             FontWeight="SemiBold"
+                             Margin="0,0,0,15"/>
+
+                <!-- Длительность -->
+                <ui:TextBlock Grid.Row="3" Grid.Column="0"
+                             Text="Затраченное время:"
+                             FontSize="16"
+                             Margin="0,0,15,15"/>
+                <ui:TextBlock Grid.Row="3" Grid.Column="1"
+                             Text="{Binding FormattedDuration}"
+                             FontSize="16"
+                             FontWeight="SemiBold"
+                             Margin="0,0,0,15"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="0,20,0,40">
             <Separator Margin="0,10"/>
-            <TextBlock Text="{Binding TotalQuestions, StringFormat='Количество вопросов: {0}'}" FontSize="16" Margin="0,5" />
-            <TextBlock Text="{Binding TotalScore, StringFormat='Общее количество баллов: {0:F1}'}" FontSize="16" Margin="0,5" />
-            <TextBlock Text="{Binding CompletionDate, StringFormat='Дата прохождения: {0:dd.MM.yyyy HH:mm}'}" FontSize="16" Margin="0,5" />
-            <TextBlock Text="{Binding FormattedDuration}" FontSize="16" Margin="0,5" />
-            <Separator Margin="0,10"/>
-            <TextBlock Text="Спасибо за прохождение теста!" FontSize="18" FontWeight="Bold" Margin="0,10" Foreground="#4CAF50"/>
+            <ui:TextBlock Text="Спасибо за прохождение теста!" 
+                         FontSize="22" 
+                         FontWeight="Bold" 
+                         Foreground="#4CAF50"
+                         TextAlignment="Center"
+                         TextWrapping="Wrap"/>
         </StackPanel>
     </Grid>
 </Page>

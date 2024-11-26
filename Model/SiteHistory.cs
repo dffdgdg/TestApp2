@@ -9,9 +9,9 @@ public partial class SiteHistory
 
     public int Site { get; set; }
 
-    public DateOnly EventDate { get; set; }
+    public DateOnly Date { get; set; }
 
-    public string? EventDescription { get; set; }
+    public string Description { get; set; } = null!;
 
     public virtual HistoricalSite SiteNavigation { get; set; } = null!;
 }

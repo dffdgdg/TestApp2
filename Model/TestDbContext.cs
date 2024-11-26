@@ -21,21 +21,13 @@ public partial class TestDbContext : DbContext
 
     public virtual DbSet<HistoricalSite> HistoricalSites { get; set; }
 
-    public virtual DbSet<HistoricalSitesInfo> HistoricalSitesInfos { get; set; }
-
     public virtual DbSet<Question> Questions { get; set; }
 
     public virtual DbSet<SiteHistory> SiteHistories { get; set; }
 
     public virtual DbSet<Test> Tests { get; set; }
 
-    public virtual DbSet<TestQuestionsAnswer> TestQuestionsAnswers { get; set; }
-
-    public virtual DbSet<TestSummary> TestSummaries { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
-
-    public virtual DbSet<UserDetail> UserDetails { get; set; }
 
     public virtual DbSet<Userresult> Userresults { get; set; }
 
@@ -56,15 +48,16 @@ public partial class TestDbContext : DbContext
             entity.ToTable("answers");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.AnswerText).HasColumnName("answer_text");
             entity.Property(e => e.IsCorrect)
                 .HasDefaultValue(false)
                 .HasColumnName("is_correct");
-            entity.Property(e => e.QuestionId).HasColumnName("question_id");
+            entity.Property(e => e.Name)
+                .HasMaxLength(75)
+                .HasColumnName("name");
+            entity.Property(e => e.Question).HasColumnName("question");
 
-            entity.HasOne(d => d.Question).WithMany(p => p.Answers)
-                .HasForeignKey(d => d.QuestionId)
-                .OnDelete(DeleteBehavior.Cascade)
+            entity.HasOne(d => d.QuestionNavigation).WithMany(p => p.Answers)
+                .HasForeignKey(d => d.Question)
                 .HasConstraintName("answers_question_id_fkey");
         });
 
@@ -79,7 +72,7 @@ public partial class TestDbContext : DbContext
             entity.Property(e => e.FoundingDate).HasColumnName("founding_date");
             entity.Property(e => e.Image).HasColumnName("image");
             entity.Property(e => e.Name)
-                .HasMaxLength(255)
+                .HasMaxLength(50)
                 .HasColumnName("name");
         });
 
@@ -97,32 +90,10 @@ public partial class TestDbContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Timestamp)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("timestamp");
 
             entity.HasOne(d => d.DistrictNavigation).WithMany(p => p.HistoricalSites)
                 .HasForeignKey(d => d.District)
                 .HasConstraintName("historical_sites_district_fkey");
-        });
-
-        modelBuilder.Entity<HistoricalSitesInfo>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("historical_sites_info");
-
-            entity.Property(e => e.ConstructionDate).HasColumnName("construction_date");
-            entity.Property(e => e.DistrictDescription).HasColumnName("district_description");
-            entity.Property(e => e.DistrictName)
-                .HasMaxLength(255)
-                .HasColumnName("district_name");
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.SiteDescription).HasColumnName("site_description");
-            entity.Property(e => e.SiteName)
-                .HasMaxLength(255)
-                .HasColumnName("site_name");
         });
 
         modelBuilder.Entity<Question>(entity =>
@@ -132,19 +103,13 @@ public partial class TestDbContext : DbContext
             entity.ToTable("questions");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.ImageUrl)
-                .HasMaxLength(255)
-                .HasColumnName("image_url");
-            entity.Property(e => e.QuestionNumber).HasColumnName("question_number");
-            entity.Property(e => e.QuestionText).HasColumnName("question_text");
-            entity.Property(e => e.QuestionType)
-                .HasMaxLength(50)
-                .HasColumnName("question_type");
-            entity.Property(e => e.TestId).HasColumnName("test_id");
+            entity.Property(e => e.Image).HasColumnName("image");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.Test).HasColumnName("test");
+            entity.Property(e => e.Type).HasColumnName("type");
 
-            entity.HasOne(d => d.Test).WithMany(p => p.Questions)
-                .HasForeignKey(d => d.TestId)
-                .OnDelete(DeleteBehavior.Cascade)
+            entity.HasOne(d => d.TestNavigation).WithMany(p => p.Questions)
+                .HasForeignKey(d => d.Test)
                 .HasConstraintName("questions_test_id_fkey");
         });
 
@@ -155,8 +120,8 @@ public partial class TestDbContext : DbContext
             entity.ToTable("site_history");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.EventDate).HasColumnName("event_date");
-            entity.Property(e => e.EventDescription).HasColumnName("event_description");
+            entity.Property(e => e.Date).HasColumnName("date");
+            entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Site).HasColumnName("site");
 
             entity.HasOne(d => d.SiteNavigation).WithMany(p => p.SiteHistories)
@@ -171,10 +136,6 @@ public partial class TestDbContext : DbContext
             entity.ToTable("tests");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("created_at");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.District).HasColumnName("district");
             entity.Property(e => e.Title)
@@ -183,42 +144,8 @@ public partial class TestDbContext : DbContext
 
             entity.HasOne(d => d.DistrictNavigation).WithMany(p => p.Tests)
                 .HasForeignKey(d => d.District)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_district");
-        });
-
-        modelBuilder.Entity<TestQuestionsAnswer>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("test_questions_answers");
-
-            entity.Property(e => e.AnswerId).HasColumnName("answer_id");
-            entity.Property(e => e.AnswerText).HasColumnName("answer_text");
-            entity.Property(e => e.IsCorrect).HasColumnName("is_correct");
-            entity.Property(e => e.QuestionId).HasColumnName("question_id");
-            entity.Property(e => e.QuestionNumber).HasColumnName("question_number");
-            entity.Property(e => e.QuestionText).HasColumnName("question_text");
-            entity.Property(e => e.TestId).HasColumnName("test_id");
-            entity.Property(e => e.TestTitle)
-                .HasMaxLength(255)
-                .HasColumnName("test_title");
-        });
-
-        modelBuilder.Entity<TestSummary>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("test_summary");
-
-            entity.Property(e => e.DistrictName)
-                .HasMaxLength(255)
-                .HasColumnName("district_name");
-            entity.Property(e => e.QuestionCount).HasColumnName("question_count");
-            entity.Property(e => e.TestDescription).HasColumnName("test_description");
-            entity.Property(e => e.TestId).HasColumnName("test_id");
-            entity.Property(e => e.TestTitle)
-                .HasMaxLength(255)
-                .HasColumnName("test_title");
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -235,16 +162,16 @@ public partial class TestDbContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("login");
             entity.Property(e => e.Midname)
-                .HasMaxLength(255)
+                .HasMaxLength(50)
                 .HasColumnName("midname");
             entity.Property(e => e.Name)
-                .HasMaxLength(255)
+                .HasMaxLength(50)
                 .HasColumnName("name");
             entity.Property(e => e.Password)
                 .HasMaxLength(255)
                 .HasColumnName("password");
             entity.Property(e => e.Surname)
-                .HasMaxLength(255)
+                .HasMaxLength(50)
                 .HasColumnName("surname");
             entity.Property(e => e.Usertype).HasColumnName("usertype");
 
@@ -254,31 +181,6 @@ public partial class TestDbContext : DbContext
                 .HasConstraintName("fk_usertype");
         });
 
-        modelBuilder.Entity<UserDetail>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("user_details");
-
-            entity.Property(e => e.Birthdate).HasColumnName("birthdate");
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Login)
-                .HasMaxLength(50)
-                .HasColumnName("login");
-            entity.Property(e => e.Midname)
-                .HasMaxLength(255)
-                .HasColumnName("midname");
-            entity.Property(e => e.Name)
-                .HasMaxLength(255)
-                .HasColumnName("name");
-            entity.Property(e => e.Surname)
-                .HasMaxLength(255)
-                .HasColumnName("surname");
-            entity.Property(e => e.UserType)
-                .HasMaxLength(50)
-                .HasColumnName("user_type");
-        });
-
         modelBuilder.Entity<Userresult>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("userresult_pkey");
@@ -286,16 +188,17 @@ public partial class TestDbContext : DbContext
             entity.ToTable("userresult");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Testid).HasColumnName("testid");
-            entity.Property(e => e.Userid).HasColumnName("userid");
+            entity.Property(e => e.Score).HasColumnName("score");
+            entity.Property(e => e.Test).HasColumnName("test");
+            entity.Property(e => e.User).HasColumnName("user");
 
-            entity.HasOne(d => d.Test).WithMany(p => p.Userresults)
-                .HasForeignKey(d => d.Testid)
+            entity.HasOne(d => d.TestNavigation).WithMany(p => p.Userresults)
+                .HasForeignKey(d => d.Test)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("userresult_testid_fkey");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Userresults)
-                .HasForeignKey(d => d.Userid)
+            entity.HasOne(d => d.UserNavigation).WithMany(p => p.Userresults)
+                .HasForeignKey(d => d.User)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("userresult_userid_fkey");
         });
@@ -308,7 +211,7 @@ public partial class TestDbContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Name)
-                .HasMaxLength(50)
+                .HasMaxLength(15)
                 .HasColumnName("name");
         });
 

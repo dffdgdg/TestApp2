@@ -1,15 +1,6 @@
 ﻿using System.Windows.Controls;
-
-namespace TestApp.View.Account
+namespace TestApp.View.Account;
+public partial class AccountUC : UserControl
 {
-    /// <summary>
-    /// Логика взаимодействия для AccountUC.xaml
-    /// </summary>
-    public partial class AccountUC : UserControl
-    {
-        public AccountUC()
-        {
-            InitializeComponent();
-        }
-    }
+    public AccountUC() => InitializeComponent();
 }

@@ -1,15 +1,6 @@
 ﻿using System.Windows.Controls;
-
-namespace TestApp.View.Account
+namespace TestApp.View.Account;
+public partial class AccountPage : Page
 {
-    /// <summary>
-    /// Логика взаимодействия для AccountPage.xaml
-    /// </summary>
-    public partial class AccountPage : Page
-    {
-        public AccountPage()
-        {
-            InitializeComponent();
-        }
-    }
+    public AccountPage() => InitializeComponent();
 }

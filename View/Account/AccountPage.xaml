@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:TestApp.View.Account"
       mc:Ignorable="d" 
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-      xmlns:Behaviors="clr-namespace:TestApp.Helpers"
+      xmlns:Behaviors="clr-namespace:TestApp.Behaviors"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
       xmlns:viewmodel="clr-namespace:TestApp.ViewModel"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Аккаунты" Margin="40,0"
+      Title="Аккаунты"
       Background="{DynamicResource SecondaryBackgroundBrush}"
       Foreground="{DynamicResource TextFillColorPrimaryBrush}">
 
@@ -18,10 +18,11 @@
         <viewmodel:AccountVM/>
     </Page.DataContext>
 
-    <Grid Margin="0,0,0,30">
+    <Grid  Margin="40,30,40,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
         <ui:TextBlock Margin="10,20" 
@@ -52,7 +53,7 @@
                   IsReadOnly="True"
                   AutoGenerateColumns="False" 
                   ColumnWidth="*"
-                  Grid.Row="2">
+                  Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Login}" Header="Логин"/>
                 <DataGridTextColumn Header="ФИО">
@@ -64,7 +65,7 @@
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding UsertypeNavigation.Name}" Header="Тип пользователя"/>
+                <DataGridTextColumn Binding="{Binding UsertypeNavigation.Name}" Header="Тип пользователя" Width="130"/>
                 <DataGridTemplateColumn Width="40">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
