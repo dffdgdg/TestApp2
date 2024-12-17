@@ -17,36 +17,42 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Background="{DynamicResource CardBackgroundPointerOver}">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="{DynamicResource CardBackground}"/>
+        <Grid Grid.Row="1" Background="{DynamicResource CardBackground}">
             <StackPanel VerticalAlignment="Top">
                 <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="GlobeLocation24"  Tag="Регионы"/>
-                <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="PeopleTeam24" Tag="Аккаунты" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}"/>
-                <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="Note24" Tag="Отчеты" />
+                <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="PeopleTeam24" Tag="Аккаунты" Visibility="{Binding IsAdmin, Converter={StaticResource BoolConv}}" />
+                <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="Note24" Tag="Отчеты" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}" />
             </StackPanel>
             <StackPanel VerticalAlignment="Bottom">
                 <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="ContactCard24" Tag="Профиль"/>
                 <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="Settings24" Tag="Настройки"/>
             </StackPanel>
         </Grid>
-        <Border Grid.Column="1" Grid.Row="1" CornerRadius="8,0,0,0" BorderThickness="1,1,0,0" BorderBrush="{DynamicResource CalendarViewBorderBrush}">
+        <Border Grid.Column="1" Grid.Row="1">
             <Grid>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                     <Grid>
-                        <ui:Button Margin="5,5" Width="35" Height="25" VerticalAlignment="Top" Panel.ZIndex="1"
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="731*"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:Button Margin="1,5,0,0" Width="35" Height="25" VerticalAlignment="Top" Panel.ZIndex="1"
                 Command="{Binding GoBackCommand}" IsEnabled="{Binding CanGoBack, ElementName=RootNavigation}"
-                                 Background="{DynamicResource ApplicationBackgroundBrush}" BorderBrush="{DynamicResource CardBorderBrush}">
+                                 Background="{DynamicResource ApplicationBackgroundBrush}" BorderThickness="2" BorderBrush="{DynamicResource CardBorderBrush}" Grid.Column="1">
                             <ui:Button.Icon>
                                 <ui:SymbolIcon Symbol="ArrowLeft24"/>
                             </ui:Button.Icon>
                         </ui:Button>
-                        <ui:Button Margin="45,5" Width="35" Height="25" VerticalAlignment="Top" Panel.ZIndex="1"
-Command="{Binding GoForwardCommand}"
-IsEnabled="{Binding CanGoForward, ElementName=RootNavigation}" Grid.ColumnSpan="2" Background="{DynamicResource ApplicationBackgroundBrush}" BorderBrush="{DynamicResource CardBorderBrush}">
+                        <ui:Button Margin="41,5,0,0" Width="35" Height="25" VerticalAlignment="Top" Panel.ZIndex="1"
+Command="{Binding GoForwardCommand}" IsEnabled="{Binding CanGoForward, ElementName=RootNavigation}" Background="{DynamicResource ApplicationBackgroundBrush}" BorderBrush="{DynamicResource CardBorderBrush}" Grid.Column="1">
                             <ui:Button.Icon>
                                 <ui:SymbolIcon Symbol="ArrowRight24"/>
                             </ui:Button.Icon>
                         </ui:Button>
-                        <Frame x:Name="RootNavigation" NavigationUIVisibility="Hidden" JournalOwnership="OwnsJournal"/>
+                        <Border CornerRadius="0" BorderThickness="1" BorderBrush="{DynamicResource CalendarViewBorderBrush}" Grid.ColumnSpan="2">
+                            <Frame x:Name="RootNavigation"  NavigationUIVisibility="Hidden" JournalOwnership="OwnsJournal"/>
+                        </Border>
                     </Grid>
                 </ScrollViewer>
             </Grid>

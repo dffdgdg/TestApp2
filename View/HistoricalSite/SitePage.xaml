@@ -11,7 +11,7 @@
       Title="DistinctDetailPage"
       ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
       ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-      Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}" Cursor="">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
@@ -57,13 +57,24 @@
             </TabItem>
             <TabItem Header="События" Background="{DynamicResource ApplicationBackgroundBrush}">
                 <StackPanel Orientation="Vertical" Background="{DynamicResource SecondaryBackgroundBrush}">
-                    <ui:Button VerticalAlignment="Top" Height="45" Margin="40,20,40,0"
-                               Appearance="Primary" HorizontalAlignment="Right" 
-                               Content="Добавить" FontWeight="Bold" Command="{Binding Add}">
-                        <ui:Button.Icon>
-                            <ui:SymbolIcon Symbol="Add24"/>
-                        </ui:Button.Icon>
-                    </ui:Button>
+                    <Grid Height="45" Margin="40,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox VerticalAlignment="Center" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,10,0" PlaceholderText="Поиск...">
+                            <ui:TextBox.Icon>
+                                <ui:SymbolIcon Symbol="Search24"/>
+                            </ui:TextBox.Icon>
+                        </ui:TextBox>
+                        <ui:Button Grid.Column="1" x:Name="addBtn"
+          Appearance="Primary" 
+          Content="Добавить" FontWeight="Bold" Command="{Binding Add}" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}" Height="35">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="Add24"/>
+                            </ui:Button.Icon>
+                        </ui:Button>
+                    </Grid>
                     <ListView x:Name="SiteHistoryListView"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                           ItemsSource="{Binding SiteHistories}" 
@@ -133,7 +144,8 @@
                                             <StackPanel Grid.Row="2"
                                                  Orientation="Horizontal" 
                                                  HorizontalAlignment="Right"
-                                                 Margin="0,10,0,0">
+                                                 Margin="0,10,0,0"
+                                                        Visibility="{Binding Visibility, ElementName=addBtn}">
                                                 <ui:Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource AncestorType=Page}}"
                                                    CommandParameter="{Binding}"
                                                    Margin="0,0,5,0">
@@ -157,8 +169,8 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
-        <local1:SiteHistoryUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
+        <!--<local1:SiteHistoryUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
                           Grid.RowSpan="2" IsHitTestVisible="True"
-                          Visibility="{Binding UCVisibility}"/>
+                          Visibility="{Binding UCVisibility}"/>-->
     </Grid>
 </Page>

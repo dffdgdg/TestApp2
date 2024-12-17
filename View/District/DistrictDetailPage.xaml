@@ -62,19 +62,25 @@
 
             <TabItem Header="Достопримечательности">
                 <StackPanel Orientation="Vertical">
-                    <ui:Button VerticalAlignment="Top" 
-                               Height="45"
-                               Margin="40,20,40,0"
-                               Appearance="Primary"
-                               HorizontalAlignment="Right" 
-                               Content="Добавить" 
-                               FontWeight="Bold" 
-                              
-                               Command="{Binding AddSite}">
-                        <ui:Button.Icon>
-                            <ui:SymbolIcon Symbol="Add24"/>
-                        </ui:Button.Icon>
-                    </ui:Button>
+                    <Grid Height="45" Margin="40,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox Text="{Binding SearchHistoricalSiteText, UpdateSourceTrigger=PropertyChanged}"
+                            VerticalAlignment="Center" Margin="0,0,10,0" PlaceholderText="Поиск...">
+                            <ui:TextBox.Icon>
+                                <ui:SymbolIcon Symbol="Search24"/>
+                            </ui:TextBox.Icon>
+                        </ui:TextBox>
+                        <ui:Button Grid.Column="1"
+          Appearance="Primary" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}"
+          Content="Добавить" FontWeight="Bold" Command="{Binding AddSite}" Height="35">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="Add24"/>
+                            </ui:Button.Icon>
+                        </ui:Button>
+                    </Grid>
 
                     <!-- Historical Sites List -->
                     <ListView x:Name="HistoricalSites"
@@ -126,7 +132,8 @@
                                                 </Border>
                                                 <StackPanel Orientation="Horizontal" 
                                                             VerticalAlignment="Bottom" 
-                                                            HorizontalAlignment="Right" Margin="5,5,3,3" IsHitTestVisible="True">
+                                                            HorizontalAlignment="Right" Margin="5,5,3,3" IsHitTestVisible="True"
+                                                            Visibility="{Binding Visibility, ElementName=addBtn}">
                                                     <ui:Button Command="{Binding DataContext.RemoveSite, RelativeSource={RelativeSource AncestorType=Page}}"
                                                                CommandParameter="{Binding}">
                                                         <ui:Button.Icon>
@@ -152,14 +159,27 @@
             </TabItem>
 
             <TabItem Header="Тесты">
-                <StackPanel Orientation="Vertical">
-                    <ui:Button VerticalAlignment="Top" Height="45" Margin="40,20,40,0"
-                               Appearance="Primary" HorizontalAlignment="Right" 
-                               Content="Добавить" FontWeight="Bold" Command="{Binding AddTest}">
-                        <ui:Button.Icon>
-                            <ui:SymbolIcon Symbol="Add24"/>
-                        </ui:Button.Icon>
-                    </ui:Button>
+                <StackPanel Orientation="Vertical" >
+                    <Grid Height="45" Margin="40,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox Text="{Binding SearchTestText, UpdateSourceTrigger=PropertyChanged}" 
+                            VerticalAlignment="Center" Margin="0,0,10,0" PlaceholderText="Поиск...">
+                            <ui:TextBox.Icon>
+                                <ui:SymbolIcon Symbol="Search24"/>
+                            </ui:TextBox.Icon>
+                        </ui:TextBox>
+                        <ui:Button Grid.Column="1"
+           Appearance="Primary" HorizontalAlignment="Right" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}"
+           Content="Добавить" FontWeight="Bold" Command="{Binding AddTest}" Height="35">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="Add24"/>
+                            </ui:Button.Icon>
+                        </ui:Button>
+                    </Grid>
+                    
                     <ListView ItemsSource="{Binding Tests}"
                               SelectedItem="{Binding SelectedTest}" 
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
@@ -223,7 +243,8 @@
                                                 <ui:Button VerticalAlignment="Bottom" 
                                                             HorizontalAlignment="Right" 
                                                             Command="{Binding DataContext.RemoveTest, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                            CommandParameter="{Binding}">
+                                                            CommandParameter="{Binding}"
+                                                           Visibility="{Binding Visibility, ElementName=addBtn}">
                                                     <ui:Button.Icon>
                                                         <ui:SymbolIcon Symbol="Delete24"/>
                                                     </ui:Button.Icon>

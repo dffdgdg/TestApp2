@@ -16,9 +16,6 @@
         </Style>
         <converters:DateOnlyToDateTimeConverter x:Key="DateOnlyToDateTimeConverter"/>
     </Page.Resources>
-    <Page.DataContext>
-        <vm:RegistrationVM/>
-    </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
@@ -82,8 +79,8 @@
         </StackPanel>
         <Image Grid.RowSpan="2" 
                Grid.Column="1" 
-               Source="/Resources/LogoBack.jpg" 
-               Stretch="UniformToFill" 
+               Source="/Resources/login.jpg" 
+               Stretch="UniformToFill" HorizontalAlignment="Right"
                Panel.ZIndex="0"/>
     </Grid>
 </Page>

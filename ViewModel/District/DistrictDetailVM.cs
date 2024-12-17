@@ -14,6 +14,7 @@ namespace TestApp.ViewModel
 {
     public class DistrictDetailVM : BaseUserControlViewModel
     {
+        // Поля класса
         private int id;
         private readonly TestDbContext db;
 
@@ -32,6 +33,20 @@ namespace TestApp.ViewModel
         public RelayCommand Close { get; }
         public ObservableCollection<HistoricalSite> HistoricalSites { get; private set; }
         private HistoricalSite curSite;
+
+        // Для поиска исторических достопримечательностей
+        private string _searchHistoricalSiteText;
+        public string SearchHistoricalSiteText
+        {
+            get => _searchHistoricalSiteText;
+            set
+            {
+                if (SetProperty(ref _searchHistoricalSiteText, value))
+                {
+                    LoadHistoricalSites();
+                }
+            }
+        }
 
         public HistoricalSite CurSite
         {
@@ -57,6 +72,7 @@ namespace TestApp.ViewModel
             get => descriptionDocument;
             private set => SetProperty(ref descriptionDocument, value);
         }
+
         private void UpdateDescriptionDocument()
         {
             var flowDoc = new FlowDocument();
@@ -70,6 +86,21 @@ namespace TestApp.ViewModel
         public RelayCommand AddTest { get; }
         public RelayCommand<Test> RemoveTest { get; }
         public ObservableCollection<Test> Tests { get; private set; }
+
+        // Для поиска тестов
+        private string _searchTestText;
+        public string SearchTestText
+        {
+            get => _searchTestText;
+            set
+            {
+                if (SetProperty(ref _searchTestText, value))
+                {
+                    LoadTests();
+                }
+            }
+        }
+
         private Test curTest, selectedTest;
 
         public Test CurTest
@@ -96,29 +127,50 @@ namespace TestApp.ViewModel
             this.service = service;
             this.userId = userId;
             this.UserType = userType;
+
             // Загрузка исторических достопримечательностей
-            HistoricalSites = new ObservableCollection<HistoricalSite>([.. db.HistoricalSites.Where(u => u.District == district.Id)]);
+            HistoricalSites = new ObservableCollection<HistoricalSite>();
+            LoadHistoricalSites();
+
             OpenSite = new RelayCommand<HistoricalSite>(OpenSites);
             AddSite = new RelayCommand(AddSites);
             RemoveSite = new RelayCommand<HistoricalSite>(RemoveSites);
             EditSite = new RelayCommand<HistoricalSite>(EditSites);
 
             // Загрузка тестов для района
-            Tests = new ObservableCollection<Test>([.. db.Tests.Where(u => u.District == district.Id)]);
+            Tests = new ObservableCollection<Test>();
+            LoadTests();
             OpenTest = new RelayCommand(OpenTestItem);
             AddTest = new RelayCommand(AddTestItem);
             RemoveTest = new RelayCommand<Test>(RemoveTestItem);
             completedTests = new HashSet<int>([.. db.Userresults.Where(r => r.User == userId).Select(r => r.Test)]);
         }
 
-        private void UpdateData()
+        private void LoadHistoricalSites()
         {
             HistoricalSites.Clear();
-            foreach (var site in db.HistoricalSites.Where(u => u.District == id).ToList())
-                HistoricalSites.Add(site);
+            var sites = db.HistoricalSites
+                .Where(u => u.District == id &&
+                            (string.IsNullOrWhiteSpace(SearchHistoricalSiteText) ||
+                             u.Name.Contains(SearchHistoricalSiteText) ||
+                             u.Description.Contains(SearchHistoricalSiteText)))
+                .ToList();
 
+            foreach (var site in sites)
+                HistoricalSites.Add(site);
+        }
+
+        private void LoadTests()
+        {
             Tests.Clear();
-            foreach (var test in db.Tests.Where(u => u.District == id).ToList())
+            var tests = db.Tests
+                .Where(u => u.District == id &&
+                            (string.IsNullOrWhiteSpace(SearchTestText) ||
+                             u.Title.Contains(SearchTestText) ||
+                             u.Description.Contains(SearchTestText)))
+                .ToList();
+
+            foreach (var test in tests)
                 Tests.Add(test);
         }
 
@@ -129,12 +181,16 @@ namespace TestApp.ViewModel
             var vm = new HistoricalSiteVM(item);
             service.Navigate(typeof(SitePage), vm);
         }
-
+        private void UpdateData()
+        {
+            LoadHistoricalSites();
+            LoadTests();
+        }
         private void AddSites()
         {
             CurSite = new HistoricalSite { District = id };
             var vm = new SiteEditVM(CurSite, service);
-            vm.ItemUpdated += UpdateData;
+            vm.ItemUpdated += LoadHistoricalSites;
             service.Navigate(typeof(SiteEditPage), vm);
         }
 
@@ -160,7 +216,7 @@ namespace TestApp.ViewModel
         {
             if (item == null) return;
             var vm = new SiteEditVM(item, service);
-            vm.ItemUpdated += UpdateData;
+            vm.ItemUpdated += LoadHistoricalSites;
             service.Navigate(typeof(SiteEditPage), vm);
         }
 
@@ -169,11 +225,12 @@ namespace TestApp.ViewModel
         {
             return completedTests?.Contains(testId) ?? false;
         }
+
         private void OpenTestItem()
         {
             if (SelectedTest == null) return;
             ShowPopup($"Открытие теста: {SelectedTest.Title}");
-            if (UserType == 5)
+            if (UserType == 1)
             {
                 if (completedTests.Contains(SelectedTest.Id))
                 {
@@ -186,7 +243,7 @@ namespace TestApp.ViewModel
             else
             {
                 var vm = new EditTestVM(SelectedTest, service);
-                service.Navigate(typeof(EditTestPage),vm);
+                service.Navigate(typeof(EditTestPage), vm);
             }
         }
 

@@ -59,10 +59,6 @@ namespace TestApp.ViewModel
             db.SaveChanges();
             ShowPopup("Сохранение прошло успешно");
         }
-        private void UpdateData()
-        {
-            Questions = new ObservableCollection<Question>([.. db.Questions.Where(u => u.Test == Test.Id).OrderBy(u => u.Name)]);
-        }
 
         protected void RemoveItem(Question item)
         {
@@ -89,14 +85,6 @@ namespace TestApp.ViewModel
             CurrentQuestion = item;
             QuestionVM vm = new(item, service, Test);
             service.Navigate(typeof(QuestionAnswersPage), vm);
-        }
-        private void UpdateQuestionNumbers()
-        {
-            for (int i = 0; i < Questions.Count; i++)
-            {
-                db.Questions.Update(Questions[i]);
-            }
-            db.SaveChanges();
         }
     }
 }

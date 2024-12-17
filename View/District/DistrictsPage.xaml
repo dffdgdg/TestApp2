@@ -8,15 +8,17 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
       xmlns:vm="clr-namespace:TestApp.ViewModel" 
       xmlns:converters="clr-namespace:TestApp.Converters" 
-      Foreground="{DynamicResource TextFillColorPrimaryBrush}" Margin="40,30,40,0">
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}" Margin="40,30,40,0" >
     <Grid>
-        <ui:TextBlock Margin="10,20" Text="Регионы" FontSize="32" FontWeight="DemiBold"/>
-        <ui:Button VerticalAlignment="Top" 
+        <ui:TextBox Height="35" Margin="0,-700,0,-0.5"/>
+        <ui:TextBlock Margin="10,20" Text="Регионы" FontSize="36" FontWeight="Bold"/>
+        <ui:Button x:Name="addBtn" VerticalAlignment="Top" 
                Height="45" 
                Margin="0,20" 
                Appearance="Info"
                HorizontalAlignment="Right" 
                Content="Добавить" 
+               Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}"
                FontWeight="Bold" 
                Command="{Binding Add}"
                >
@@ -83,11 +85,11 @@
                                         </Grid>
                                     </Border>
                                     <StackPanel Orientation="Horizontal" 
-                                            VerticalAlignment="Bottom" 
-                                            HorizontalAlignment="Right">
+                                                VerticalAlignment="Bottom" 
+                                                HorizontalAlignment="Right"
+                                                    Visibility="{Binding Visibility, ElementName=addBtn}">
                                         <ui:Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource AncestorType=Page}}"
-                                               CommandParameter="{Binding}" 
-                                               >
+                                               CommandParameter="{Binding}" >
                                             <ui:Button.Icon>
                                                 <ui:SymbolIcon Symbol="Delete24"/>
                                             </ui:Button.Icon>

@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Drawing;
 using System.IO;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
@@ -21,11 +20,22 @@ namespace TestApp.ViewModel
         public District SelectedDistrict
         {
             get => _selectedDistrict;
-            set
-            {
-                _selectedDistrict = value;
-                OnPropertyChanged();
-            }
+            set => SetProperty(ref _selectedDistrict, value);
+        }
+
+        private DateTime? _startDate;
+        private DateTime? _endDate;
+
+        public DateTime? StartDate
+        {
+            get => _startDate;
+            set => SetProperty(ref _startDate, value);
+        }
+
+        public DateTime? EndDate
+        {
+            get => _endDate;
+            set => SetProperty(ref _endDate, value);
         }
         public ReportVM()
         {
@@ -62,22 +72,21 @@ namespace TestApp.ViewModel
 
         private async Task<List<Tuple<string, int, double, double>>> GetTestResultsAsync()
         {
-            var results = await _dbContext.Users
-                .Include(u => u.Userresults)
-                .ThenInclude(ur => ur.TestNavigation)
-                .Where(u => SelectedDistrict.Name == "Все регионы" ||
-                    u.Userresults.Any(ur => ur.TestNavigation.District == SelectedDistrict.Id)) 
+            var results = await _dbContext.Users.Include(u => u.Userresults).ThenInclude(ur => ur.TestNavigation)
+                .Where(u => SelectedDistrict.Name == "Все регионы" || u.Userresults.Any(ur => ur.TestNavigation.District == SelectedDistrict.Id))
+                .Where(u => !StartDate.HasValue || u.Userresults.Any(ur => ur.CreatedAt >= DateOnly.FromDateTime(StartDate.Value)))
+                .Where(u => !EndDate.HasValue || u.Userresults.Any(ur => ur.CreatedAt <= DateOnly.FromDateTime(EndDate.Value)))
                 .Select(u => new
                 {
                     AgeGroup = GetAgeGroup(u.Birthdate),
-                    TotalTests = u.Userresults.Count(),
-                    TotalScore = u.Userresults.Sum(ur => ur.Score)
+                    TotalTests = u.Userresults.Count(ur => !StartDate.HasValue || ur.CreatedAt >= DateOnly.FromDateTime(StartDate.Value) && !EndDate.HasValue || ur.CreatedAt <= DateOnly.FromDateTime(EndDate.Value)),
+                    TotalScore = u.Userresults.Sum(ur => !StartDate.HasValue || ur.CreatedAt >= DateOnly.FromDateTime(StartDate.Value) && !EndDate.HasValue || ur.CreatedAt <= DateOnly.FromDateTime(EndDate.Value) ? ur.Score : 0)
                 })
                 .ToListAsync();
 
             var groupedResults = results
                 .GroupBy(r => r.AgeGroup)
-                .Where(g => g.Sum(x => x.TotalTests) > 0) 
+                .Where(g => g.Sum(x => x.TotalTests) > 0)
                 .Select(g =>
                 {
                     var totalTests = g.Sum(x => x.TotalTests);

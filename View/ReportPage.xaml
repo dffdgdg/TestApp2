@@ -22,6 +22,19 @@
                   HorizontalAlignment="Left"
                   Margin="0,10" 
                   Width="200" />
+
+            <TextBlock Margin="0,10" Text="Начальная дата:"/>
+            <DatePicker SelectedDate="{Binding StartDate}" 
+                        HorizontalAlignment="Left" 
+                        Margin="0,5" 
+                        MinWidth="150" />
+
+            <TextBlock Margin="0,10" Text="Конечная дата:"/>
+            <DatePicker SelectedDate="{Binding EndDate}" 
+                        HorizontalAlignment="Left" 
+                        Margin="0,5" 
+                        MinWidth="150" />
+
             <ui:Button Content="Сформировать отчет в Microsoft Word" 
                     Command="{Binding GenerateReportCommand}" 
                     Width="380" 

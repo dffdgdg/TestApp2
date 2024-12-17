@@ -1,20 +1,200 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TestApp.ViewModel.AccountVM" Collapsed="true">
-    <Position X="24.25" Y="3.25" Width="1.5" />
+  <Class Name="TestApp.View.Profile.ChangePasswordUC" BaseTypeListCollapsed="true">
+    <Position X="104.5" Y="25.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAJAAKAAEAAAIAAAAAADAQAAgwAACAQACIooAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Profile\ChangePasswordUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Model.Answer">
+    <Position X="99" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAIAgAAAAAA=</HashCode>
+      <FileName>Model\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.CurrentMonthTestResult">
+    <Position X="91.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAIAAABAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Model\CurrentMonthTestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.TestDbContext">
+    <Position X="102.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAACSAAAQAYiAIAAgAAAAAEEAAEAAAEQAAAAIAAAMQ=</HashCode>
+      <FileName>Model\DBContextPartial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.AuthResult">
+    <Position X="97.25" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Model\DBContextPartial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.BoolResult">
+    <Position X="99" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\DBContextPartial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.District">
+    <Position X="90" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAgAAAgAAAAAAAAAAQEAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\District.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.DistrictTest">
+    <Position X="99" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAUAAAAAAAAAA=</HashCode>
+      <FileName>Model\DistrictTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.HistoricalSite">
+    <Position X="90.25" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAgAAAgAAACAAAAAAQAAAAEABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\HistoricalSite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.Question">
+    <Position X="90.25" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAABAAQQAECAAAAAA=</HashCode>
+      <FileName>Model\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.SiteHistory">
+    <Position X="97.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAhgAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SiteHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.Test">
+    <Position X="93.75" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAgAAAgAEIAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.User">
+    <Position X="93.75" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAIAAAEAAAQABAAAAAACAAAQABAAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.Userresult">
+    <Position X="92" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAgAACAAAAAAAgAAAAAAAAAECAAAAAA=</HashCode>
+      <FileName>Model\Userresult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Model.Usertype">
+    <Position X="104.5" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Usertype.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Converters.BooleanConverter" BaseTypeListCollapsed="true">
+    <Position X="102.5" Y="24" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BooleanConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.BoolToVisibilityConverter" BaseTypeListCollapsed="true">
+    <Position X="93.75" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BoolToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.CompletedTestConverter" BaseTypeListCollapsed="true">
+    <Position X="95.5" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CompletedTestConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.CountToVisibilityConverter" BaseTypeListCollapsed="true">
+    <Position X="91.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CountToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.DateOnlyToDateTimeConverter" BaseTypeListCollapsed="true">
+    <Position X="102.5" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\DateOnlyToDateTimeConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.ImageToBitmapImageConverter" BaseTypeListCollapsed="true">
+    <Position X="90" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ImageToBitmapImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.ReverseBooleanConverter" BaseTypeListCollapsed="true">
+    <Position X="97.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ReverseBooleanConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.RussianDateConverter" BaseTypeListCollapsed="true">
+    <Position X="93.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\RussianDateConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Converters.StringToFlowDocConverter" BaseTypeListCollapsed="true">
+    <Position X="97.25" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\StringToFlowDocConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.ViewModel.AccountVM">
+    <Position X="99" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEJAAKBAEAAAIAAAAQADAQAAgwAgCAQACIooAACAAAA=</HashCode>
       <FileName>ViewModel\Account\AccountVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.LoginVM" Collapsed="true">
-    <Position X="29.75" Y="5.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.LoginVM">
+    <Position X="104.5" Y="13.75" Width="1.5" />
     <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
       <Path>
-        <Point X="31.5" Y="1.062" />
-        <Point X="31.5" Y="5.564" />
-        <Point X="30.5" Y="5.564" />
-        <Point X="30.5" Y="5.75" />
+        <Point X="103.5" Y="8.439" />
+        <Point X="103.5" Y="8.875" />
+        <Point X="104.247" Y="8.875" />
+        <Point X="104.247" Y="13.596" />
+        <Point X="105.25" Y="13.596" />
+        <Point X="105.25" Y="13.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -22,355 +202,167 @@
       <FileName>ViewModel\Authorization\LoginVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.RegistrationVM" Collapsed="true">
-    <Position X="32" Y="4.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.RegistrationVM">
+    <Position X="90.25" Y="16.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAUAAEAAAAKIAAAIAAEQAAQAABAAAAAiAAAQIAAEAAg=</HashCode>
       <FileName>ViewModel\Authorization\RegistrationVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.BaseViewModel" Collapsed="true">
-    <Position X="30.75" Y="0.5" Width="1.5" />
+  <Class Name="TestApp.ViewModel.BaseViewModel">
+    <Position X="102.5" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAIgAAAAAEAAAKAQAAAEAiAEACAAAAEAAAAEAAAA=</HashCode>
       <FileName>ViewModel\Base\BaseViewModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TestApp.ViewModel.DistinctVM" Collapsed="true">
-    <Position X="29.5" Y="4.25" Width="1.5" />
+  <Class Name="TestApp.ViewModel.DistinctVM">
+    <Position X="102.5" Y="19.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAgQEIEAAAAAAAAAEBAIAAAQAAAQAAAAIAAAAAAAA=</HashCode>
       <FileName>ViewModel\District\DistinctVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.DistrictDetailVM" Collapsed="true">
-    <Position X="26" Y="3.25" Width="1.5" />
+  <Class Name="TestApp.ViewModel.DistrictDetailVM">
+    <Position X="95.5" Y="14.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ECiAAKAAEgAwAAIBIAYBAIwEAgADIBAAAQIAgECgigA=</HashCode>
+      <HashCode>ECjAAOAAEgAwAAMBIAYBAIwEAgADIBAEAQIAgECwigA=</HashCode>
       <FileName>ViewModel\District\DistrictDetailVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.DistrictEditViewModel" Collapsed="true">
-    <Position X="32" Y="2.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.DistrictEditViewModel">
+    <Position X="93.75" Y="14.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAIACQAAAACAAAAAEgEgAAAAAAAAAAAACAAgA=</HashCode>
+      <HashCode>EAAAAAAAIACwAAAACAAAAAEgEAAAAAAAAAAAAACAAgA=</HashCode>
       <FileName>ViewModel\District\DistrictEditViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.HistoricalSiteVM" Collapsed="true">
-    <Position X="27.75" Y="4.25" Width="1.5" />
+  <Class Name="TestApp.ViewModel.HistoricalSiteVM">
+    <Position X="100.75" Y="19.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAoAEAAACoIgACAAEAAIQAAAAEARBAAAIAAEgAAAA=</HashCode>
+      <HashCode>EAAAoAEAAAChIgACAAEAAIQAAAAEARBAAAIAAEoAAAA=</HashCode>
       <FileName>ViewModel\HistoricalSite\HistoricalSiteVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.SiteEditVM" Collapsed="true">
-    <Position X="33.75" Y="2.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.SiteEditVM">
+    <Position X="92" Y="14.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAIACQAAAACAAAAAEgEgAAAAAAAAAAAACAAgA=</HashCode>
+      <HashCode>EAAAAAAAIACwAAAACAAAAAEgEAAAAAAAAAAAAACAAgA=</HashCode>
       <FileName>ViewModel\HistoricalSite\SiteEditVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.EditTestVM" Collapsed="true">
-    <Position X="26.25" Y="5.75" Width="1.5" />
-    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" FixedToPoint="true">
-      <Path>
-        <Point X="31.5" Y="1.062" />
-        <Point X="31.5" Y="5.564" />
-        <Point X="27.25" Y="5.564" />
-        <Point X="27.25" Y="5.75" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="TestApp.ViewModel.AddTestViewModel">
+    <Position X="90.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EANAAJAEEAASIAgAAAAABIAAgAQAAAAGRBAACAAQAAA=</HashCode>
+      <HashCode>AAAAIAAAAAiCkQEAAAACABAAEAEYAACsAEAQCAQAEgg=</HashCode>
+      <FileName>ViewModel\Test\AddTestVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.ViewModel.EditTestVM">
+    <Position X="92" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAJAAJAEAAAQIAAAAAAABAAAgAQAAAAGBBAACAAQAAA=</HashCode>
       <FileName>ViewModel\Test\EditTestVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.QuestionVM" Collapsed="true">
-    <Position X="24.5" Y="5.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.QuestionVM">
+    <Position X="95.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EApAAJAAAAAQAQAAAAAABAAAgAQAAAAMQQAAAAAAAAA=</HashCode>
       <FileName>ViewModel\Test\QuestionVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.TestQuestionsVM" Collapsed="true">
-    <Position X="32" Y="5.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.TestQuestionsVM">
+    <Position X="92" Y="19" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAFgAASAAAAAAAAgEAIAAAAjAAABAEAAAAAABAjAAA=</HashCode>
       <FileName>ViewModel\Test\TestQuestionsVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.TestResultVM" Collapsed="true">
-    <Position X="33.75" Y="4.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.TestResultVM">
+    <Position X="100.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAACAABQABBAACAAAAAACABAAAAAIAAAEAA=</HashCode>
       <FileName>ViewModel\Test\TestResultVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.MainPageVM" Collapsed="true">
-    <Position X="33.75" Y="3.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.MainPageVM">
+    <Position X="99" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAQAAAAAQAAAEAAAAQAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAEAAACAAAAAAAQAAAAAQAAAEAAAAQAAAAAgA=</HashCode>
       <FileName>ViewModel\MainPageVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.MainWindowVM" Collapsed="true">
-    <Position X="28" Y="5.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.MainWindowVM">
+    <Position X="102.5" Y="12.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="103.5" Y="8.439" />
+        <Point X="103.5" Y="8.875" />
+        <Point X="104.263" Y="8.875" />
+        <Point X="104.263" Y="12.096" />
+        <Point X="103.25" Y="12.096" />
+        <Point X="103.25" Y="12.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\MainWindowVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.ProfileVM" Collapsed="true">
-    <Position X="27.75" Y="3.25" Width="1.5" />
+  <Class Name="TestApp.ViewModel.ProfileVM">
+    <Position X="97.25" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AECCAADHSCAAgAAAQBBBAiIAAkEACAAAIEIDAMQIAEE=</HashCode>
       <FileName>ViewModel\ProfileVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.ReportVM" Collapsed="true">
-    <Position X="33.75" Y="5.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.ReportVM">
+    <Position X="104.5" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="103.5" Y="8.439" />
+        <Point X="103.5" Y="8.875" />
+        <Point X="105.25" Y="8.875" />
+        <Point X="105.25" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>QEABAQAAQAAAAAAAAAAAAAAAACAAAAAAAAABAAAEAAA=</HashCode>
+      <HashCode>QEABAQAAQAAAIAIAAAAAAAAgACAAAAAAAAABAEAEAAA=</HashCode>
       <FileName>ViewModel\ReportVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.SettingsVM" Collapsed="true">
-    <Position X="32" Y="3.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.SettingsVM">
+    <Position X="102.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAKAAAQAAAAAA=</HashCode>
       <FileName>ViewModel\SettingsVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.Base.BaseEditModel&lt;T&gt;" Collapsed="true">
-    <Position X="29.5" Y="3.25" Width="1.5" />
+  <Class Name="TestApp.ViewModel.Base.BaseEditModel&lt;T&gt;">
+    <Position X="100.75" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAIAAIEAAACAIAAEACEABIAAAAABAQACAAAAAgACAAA=</HashCode>
       <FileName>ViewModel\Base\BaseEditModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.Base.BaseEditsModel&lt;T&gt;" Collapsed="true">
-    <Position X="32" Y="1.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.Base.BaseEditsModel&lt;T&gt;">
+    <Position X="93.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAACAIAAIACAAAAAAAQAAAEEAggBAAAAAQAAAAAQAAA=</HashCode>
+      <HashCode>EAACAIAAIACgAAAAAAQAAAEEAggBAAAAAQAAAACQAAA=</HashCode>
       <FileName>ViewModel\Base\BaseEditsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.Base.BaseUserControlViewModel" Collapsed="true">
-    <Position X="29.5" Y="1.75" Width="1.5" />
+  <Class Name="TestApp.ViewModel.Base.BaseUserControlViewModel">
+    <Position X="97.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAACAAAA=</HashCode>
       <FileName>ViewModel\Base\BaseUserControlViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.Model.Answer" Collapsed="true">
-    <Position X="24.5" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAIAgAAAAAA=</HashCode>
-      <FileName>Model\Answer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.TestDbContext" Collapsed="true">
-    <Position X="26.25" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAACTAAAQQQiAIIAgAAIAAEEAAEAAAEQAAAAIAAAEA=</HashCode>
-      <FileName>Model\DBContextPartial.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.AuthResult" Collapsed="true">
-    <Position X="26.25" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>Model\DBContextPartial.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.BoolResult" Collapsed="true">
-    <Position X="28" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\DBContextPartial.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.District" Collapsed="true">
-    <Position X="29.75" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAACAAAgAAAgAAAAAAAAAAQEAAAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\District.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.HistoricalSite" Collapsed="true">
-    <Position X="24.5" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAQAgAAAgAAACAAAAAAQAAAAEABAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\HistoricalSite.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.HistoricalSitesInfo" Collapsed="true">
-    <Position X="26.25" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAECAAAAAAAAAAACAAAAAAAAAAAAAAAAQgAAABAAAAA=</HashCode>
-      <FileName>Model\HistoricalSitesInfo.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.Question" Collapsed="true">
-    <Position X="28" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAABAAQQAECAAAAAA=</HashCode>
-      <FileName>Model\Question.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.SiteHistory" Collapsed="true">
-    <Position X="29.75" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAhgAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Model\SiteHistory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.Test" Collapsed="true">
-    <Position X="24.5" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAQAgAAAgAEIAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Test.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.TestQuestionsAnswer" Collapsed="true">
-    <Position X="28" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABAAAAAAgAAAAAAAgAAEAAAAAAAABAAAAAIAAAQAAAA=</HashCode>
-      <FileName>Model\TestQuestionsAnswer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.TestSummary" Collapsed="true">
-    <Position X="29.75" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAQAAAAEAAAAAAAAAAQAQAAAAAAAAAA=</HashCode>
-      <FileName>Model\TestSummary.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.User" Collapsed="true">
-    <Position X="24.5" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAACAIAAAEAAAQABAAAAAACAAAQABAAAAA=</HashCode>
-      <FileName>Model\User.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.UserDetail" Collapsed="true">
-    <Position X="26.25" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQABAAACAAAAAAQABAAAAA=</HashCode>
-      <FileName>Model\UserDetail.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.Userresult" Collapsed="true">
-    <Position X="28" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAADAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAECAAAAAA=</HashCode>
-      <FileName>Model\Userresult.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Model.Usertype" Collapsed="true">
-    <Position X="29.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Usertype.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Converters.BooleanConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="32" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\BooleanConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.BoolToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="33.75" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\BoolToVisibilityConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.CompletedTestConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="35.5" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\CompletedTestConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.CountToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="32" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\CountToVisibilityConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.DateOnlyToDateTimeConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="33.75" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\DateOnlyToDateTimeConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.ImageToBitmapImageConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="35.5" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\ImageToBitmapImageConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.ReverseBooleanConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="32" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\ReverseBooleanConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.RussianDateConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="33.75" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\RussianDateConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Converters.StringToFlowDocConverter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="35.5" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Converters\StringToFlowDocConverter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="TestApp.Behaviors.NumericOnlyBehavior" Collapsed="true">
-    <Position X="32" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAFAAAACAAAAAACAAAAAAAAAAAAEAAAAAAAQA=</HashCode>
-      <FileName>Behaviors\NumericOnlyBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Behaviors.PasswordBehavior" Collapsed="true">
-    <Position X="33.75" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAQAFAAAAAAAIAAAAAAAAAAAABACAAAAAAAAAAQ=</HashCode>
-      <FileName>Behaviors\PasswordBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Behaviors.RussianLettersOnlyBehavior" Collapsed="true">
-    <Position X="32" Y="10.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEAAAAEAFAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
-      <FileName>Behaviors\RussianLettersOnlyBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.Services.MessageBoxs" Collapsed="true">
-    <Position X="33.75" Y="10.5" Width="1.5" />
+  <Class Name="TestApp.Services.MessageBoxs">
+    <Position X="95.5" Y="4.25" Width="1.5" />
     <NestedTypes>
       <Enum Name="TestApp.Services.MessageBoxs.Buttons" Collapsed="true">
         <TypeIdentifier>
@@ -388,31 +380,44 @@
       <FileName>Services\MessageBoxs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.Services.Navigation" Collapsed="true">
-    <Position X="35.5" Y="9.5" Width="1.5" />
+  <Class Name="TestApp.Services.Navigation">
+    <Position X="93.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAQAAAAAQAAAQAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\Navigation.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.Services.NavigationService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="35.5" Y="10.5" Width="1.5" />
+  <Class Name="TestApp.Services.NavigationService" BaseTypeListCollapsed="true">
+    <Position X="100.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAQgAAAAAA=</HashCode>
       <FileName>Services\NavigationService.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TestApp.Services.PageService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="35.5" Y="4.75" Width="1.5" />
+  <Class Name="TestApp.Behaviors.NumericOnlyBehavior">
+    <Position X="99" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAA=</HashCode>
-      <FileName>Services\PageService.cs</FileName>
+      <HashCode>AAAAAAAAFAAAACAAAAAACAAAAAAAAAAAAEAAAAAAAQA=</HashCode>
+      <FileName>Behaviors\NumericOnlyBehavior.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Interface Name="TestApp.Services.INavigationService" Collapsed="true">
-    <Position X="35.5" Y="5.75" Width="1.5" />
+  <Class Name="TestApp.Behaviors.PasswordBehavior">
+    <Position X="104.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAFAAAAAAAIAAAAAAAAAAAABACAAAAAAAAAAQ=</HashCode>
+      <FileName>Behaviors\PasswordBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Behaviors.RussianLettersOnlyBehavior">
+    <Position X="104.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAEAFAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Behaviors\RussianLettersOnlyBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="TestApp.Services.INavigationService">
+    <Position X="100.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAQAAAAAAA=</HashCode>
       <FileName>Services\INavigationService.cs</FileName>

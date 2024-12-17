@@ -5,9 +5,6 @@
       xmlns:vm="clr-namespace:TestApp.ViewModel" 
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
       Foreground="{DynamicResource TextFillColorPrimaryBrush}">
-    <Page.DataContext>
-        <vm:LoginVM/>
-    </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>

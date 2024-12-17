@@ -13,6 +13,8 @@ public partial class Userresult
 
     public double Score { get; set; }
 
+    public DateOnly? CreatedAt { get; set; }
+
     public virtual Test TestNavigation { get; set; } = null!;
 
     public virtual User UserNavigation { get; set; } = null!;

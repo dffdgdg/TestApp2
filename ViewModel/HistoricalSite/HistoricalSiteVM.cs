@@ -13,7 +13,18 @@ namespace TestApp.ViewModel
         private SiteHistory _selectedHistory;
 
         public ObservableCollection<SiteHistory> SiteHistories { get; private set; } = [];
-
+        private string _searchText;
+        public string SearchText
+        {
+            get => _searchText;
+            set
+            {
+                if (SetProperty(ref _searchText, value))
+                {
+                    LoadSiteHistories();
+                }
+            }
+        }
         public string Name { get; set; }
         public string ConstructionDate { get; set; }
         public string Description { get; set; }
@@ -38,7 +49,8 @@ namespace TestApp.ViewModel
             _db = new TestDbContext();
             _currentHistoricalSite = site;
             LoadHistoricalSiteData(site);
-            LoadSiteHistoriesAsync();
+            SearchText = "";
+            LoadSiteHistories();
         }
 
         private void LoadHistoricalSiteData(HistoricalSite site)
@@ -49,9 +61,17 @@ namespace TestApp.ViewModel
             Image = site.Image;
         }
 
-        private async void LoadSiteHistoriesAsync()
+        private void LoadSiteHistories()
         {
-            var histories = await _db.SiteHistories.Where(u => u.Site == _currentHistoricalSite.Id).OrderBy(u=>u.Date).ToListAsync();
+            var histories = _db.SiteHistories
+                .Where(u => u.Site == _currentHistoricalSite.Id)
+                .AsEnumerable()
+                .Where(u => u.Description.Contains(SearchText)
+                    || u.Date.ToString("dd.MM.yyyy").Contains(SearchText)
+                    || u.Date.ToString("dd MMMM yyyy").Contains(SearchText))
+                .OrderBy(u => u.Date)
+                .ToList();
+
             SiteHistories.Clear();
             foreach (var history in histories)
             {
@@ -114,7 +134,7 @@ namespace TestApp.ViewModel
                     _db.SiteHistories.Add(_selectedHistory);
 
                 await _db.SaveChangesAsync();
-                LoadSiteHistoriesAsync();
+                LoadSiteHistories();
                 ShowPopup("Добавление прошло успешно");
                 UCVisibility = Visibility.Collapsed;
             }

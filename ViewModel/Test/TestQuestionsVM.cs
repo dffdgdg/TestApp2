@@ -118,7 +118,8 @@ namespace TestApp.ViewModel
                     {
                         Test = testId,
                         User = userId,
-                        Score = _questions.Count > 0 ? (score / (double)_questions.Count) * 100 : 0
+                        Score = _questions.Count > 0 ? (score / (double)_questions.Count) * 100 : 0,
+                        CreatedAt = DateOnly.FromDateTime(DateTime.Now)
                     };
                     _db.Userresults.Add(result);
                     _db.SaveChanges();
@@ -147,7 +148,6 @@ namespace TestApp.ViewModel
 
                 score += CalculateScore(currentQuestion);
                 _currentQuestionIndex++;
-                ShowMessage(score.ToString());
                 LoadQuestion();
             }
         }

@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using TestApp.Model;
@@ -60,9 +59,7 @@ public class AddTestViewModel : BaseViewModel
         get
         {
             if (SelectedQuestion != null)
-            {
                 return new ObservableCollection<Answer>(SelectedQuestion.Answers);
-            }
             return [];
         }
     }
@@ -135,15 +132,12 @@ public class AddTestViewModel : BaseViewModel
         }
 
         if (errors.Any())
-        {
             throw new InvalidOperationException(string.Join(Environment.NewLine, errors));
-        }
     }
 
     private void SaveTest()
     {
         using var context = new TestDbContext();
-
         try
         {
             Validate();
@@ -188,28 +182,14 @@ public class AddTestViewModel : BaseViewModel
         int answersCount = question.Answers.Count;
         int correctAnswersCount = question.Answers.Count(a => a.IsCorrect);
 
-        if (answersCount == 1)
-        {
-            question.Type = 1; // Тип 1: Один вариант ответа
-        }
+        if (answersCount == 1) question.Type = 1; // Тип 1: Один вариант ответа
         else if (answersCount >= 2)
         {
-            if (correctAnswersCount == 1)
-            {
-                question.Type = 2; // Тип 2: Несколько вариантов, один правильный
-            }
-            else if (correctAnswersCount > 1)
-            {
-                question.Type = 3; // Тип 3: Несколько вариантов, несколько правильных
-            }
-            else
-            {
-                throw new InvalidOperationException($"Вопрос '{question.Name}' должен иметь хотя бы один правильный ответ.");
-            }
+            if (correctAnswersCount == 1) question.Type = 2; // Тип 2: Несколько вариантов, один правильный
+            else if (correctAnswersCount > 1) question.Type = 3; // Тип 3: Несколько вариантов, несколько правильных
+            else throw new InvalidOperationException($"Вопрос '{question.Name}' должен иметь хотя бы один правильный ответ.");
         }
         else
-        {
             throw new InvalidOperationException($"Вопрос '{question.Name}' должен иметь хотя бы один вариант ответа.");
-        }
     }
 }

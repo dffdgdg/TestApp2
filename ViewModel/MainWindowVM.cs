@@ -20,8 +20,6 @@ public class MainWindowVM : BaseViewModel
                 ApplicationThemeManager.Apply(ApplicationTheme.Dark, Wpf.Ui.Controls.WindowBackdropType.Mica);
                 break;
         }
-        AppSettings.Default.Password = "";
-        AppSettings.Default.Save();
         var vm = new LoginVM(service);
         service.Navigate(typeof(LoginPage), vm);
     }
