@@ -11,5 +11,6 @@
 СУБД: PostgreSQL
 ORM: Entity Framework Core
 Язык программирования: C#
-Платформа: .NET с использованием WPF
+Платформа: .NET 8 с использованием WPF
 Архитектура: MVVM
+Библиотеки: Closed XML, CommunityToolkit.Mvvm, EPPlus, Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.Tools, Microsoft.Extensions.Configuration, Microsoft.Extensions.Configuration.Json, Microsoft.Extensions.DependencyInjection, Microsoft.Xaml.Behaviors.Wpf, Npgsql.EntityFrameworkCore.PostgreSQL, WPF-UI
