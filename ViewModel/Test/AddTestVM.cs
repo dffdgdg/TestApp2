@@ -1,12 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
+using System.Windows.Documents;
 using System.Windows.Input;
 using TestApp.Model;
 using TestApp.Services;
+using TestApp.ViewModel.Base;
 
 namespace TestApp.ViewModel;
 
-public class AddTestViewModel : BaseViewModel
+public class AddTestViewModel : BaseEditsModel<Test>
 {
     private Test test;
     public Test Test
@@ -75,7 +78,7 @@ public class AddTestViewModel : BaseViewModel
         NewAnswer = new Answer();
         AddQuestionCommand = new RelayCommand(AddQuestion);
         AddQuestion();
-        SaveTestCommand = new RelayCommand(SaveTest);
+        SaveTestCommand = new RelayCommand(OnSave);
     }
 
     private void AddQuestion()
@@ -116,65 +119,79 @@ public class AddTestViewModel : BaseViewModel
     private ICommand _removeQuestionCommand;
     public ICommand RemoveQuestionCommand => _removeQuestionCommand ??= new RelayCommand<Question>(RemoveQuestion);
 
+    public override FlowDocument DescriptionDocument { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    protected override string Description => throw new NotImplementedException();
+
     private void RemoveQuestion(Question question) => Questions.Remove(question);
-    private void Validate()
+
+    protected override string? Validate()
     {
-        var errors = new List<string>();
+        if (string.IsNullOrWhiteSpace(Test?.Title))
+            return "Введите наименование теста!";
 
-        if (string.IsNullOrWhiteSpace(Test.Title)) errors.Add("Введите наименование теста");
-
-        if (string.IsNullOrWhiteSpace(Test.Description)) errors.Add("Введите описание теста");
+        if (string.IsNullOrWhiteSpace(Test?.Description))
+            return "Введите описание теста!";
 
         foreach (var question in Questions)
         {
-            if (question.Answers == null || question.Answers.Count == 0) errors.Add($"Вопрос '{question.Name}' должен иметь хотя бы один вариант ответа.");
-            if (!question.Answers.Any(a => a.IsCorrect)) errors.Add($"Вопрос '{question.Name}' должен иметь хотя бы один правильный ответ.");
+            if (question.Answers == null || question.Answers.Count == 0)
+                return $"Вопрос '{question.Name}' должен иметь хотя бы один вариант ответа.";
+            if (!question.Answers.Any(a => a.IsCorrect))
+                return $"Вопрос '{question.Name}' должен иметь хотя бы один правильный ответ.";
         }
 
-        if (errors.Any())
-            throw new InvalidOperationException(string.Join(Environment.NewLine, errors));
+        return null;
     }
 
-    private void SaveTest()
+    protected override void OnSave()
     {
         using var context = new TestDbContext();
         try
         {
-            Validate();
-        }
-        catch (InvalidOperationException ex)
-        {
-            ShowError(ex.Message);
-            return;
-        }
+            string? errorMessage = Validate();
 
-        context.Tests.Add(Test);
-        context.SaveChanges(); 
-
-        foreach (var question in Questions)
-        {
-            question.Test = Test.Id;
-            DetermineQuestionType(question);
-            context.Questions.Add(question);
-        }
-
-        context.SaveChanges();
-
-        foreach (var question in Questions)
-        {
-            foreach (var answer in question.Answers)
+            if (errorMessage != null)
             {
-                answer.Question = question.Id;
-                context.Answers.Add(answer);
+                ShowError(errorMessage);
+                return;
             }
-        }
-        try
-        {
+
+            context.Tests.Add(Test);
             context.SaveChanges();
+
+            foreach (var question in Questions)
+            {
+                question.Test = Test.Id;
+                DetermineQuestionType(question);
+                context.Questions.Add(question);
+            }
+
+            context.SaveChanges();
+
+            foreach (var question in Questions)
+            {
+                foreach (var answer in question.Answers)
+                {
+                    answer.Question = question.Id;
+                    context.Answers.Add(answer);
+                }
+            }
+            context.SaveChanges();
+
+            NotifyItemUpdated();
+            ShowPopup("Добавление прошло успешно!");
+            service.GoBack();
         }
-        catch { }
-        ShowPopup("Добавление прошло успешно!");
-        service.GoBack();
+        catch (DbUpdateException dbEx)
+        {
+            var innerExceptionMessage = dbEx.InnerException?.Message ?? "Неизвестная ошибка.";
+            ShowError($"Ошибка при сохранении данных: {innerExceptionMessage}");
+        }
+        catch (Exception ex)
+        {
+            ShowError($"Ошибка: {ex.Message}");
+        }
     }
 
     private void DetermineQuestionType(Question question)
@@ -191,5 +208,15 @@ public class AddTestViewModel : BaseViewModel
         }
         else
             throw new InvalidOperationException($"Вопрос '{question.Name}' должен иметь хотя бы один вариант ответа.");
+    }
+
+    protected override void OnLoadImage()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void SetImage(string filePath)
+    {
+        throw new NotImplementedException();
     }
 }

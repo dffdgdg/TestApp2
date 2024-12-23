@@ -43,9 +43,9 @@ namespace TestApp.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         // Метод ShowMessage отображает диалоговое окно с сообщением об ошибке.
-        private protected static void ShowMessage(string message) => MessageBoxs.ShowDialog(message, "Внимание", MessageBoxs.Buttons.OK, MessageBoxs.Icon.Info);
-        private protected static void ShowMessage(string messasge, string title) => MessageBoxs.ShowDialog(messasge, title, MessageBoxs.Buttons.OK, MessageBoxs.Icon.Info);
-        private protected static void ShowError(string message) => MessageBoxs.ShowDialog(message, "Внимание", MessageBoxs.Buttons.OK, MessageBoxs.Icon.Error);
-        private protected static void ShowError(string messasge, string title) => MessageBoxs.ShowDialog(messasge, title, MessageBoxs.Buttons.OK, MessageBoxs.Icon.Error);
+        protected internal void ShowMessage(string message) => MessageBoxs.ShowDialog(message, "Внимание", MessageBoxs.Buttons.OK, MessageBoxs.Icon.Info);
+        protected internal void ShowMessage(string messasge, string title) => MessageBoxs.ShowDialog(messasge, title, MessageBoxs.Buttons.OK, MessageBoxs.Icon.Info);
+        protected internal void ShowError(string message) => MessageBoxs.ShowDialog(message, "Внимание", MessageBoxs.Buttons.OK, MessageBoxs.Icon.Error);
+        protected internal void ShowError(string messasge, string title) => MessageBoxs.ShowDialog(messasge, title, MessageBoxs.Buttons.OK, MessageBoxs.Icon.Error);
     }
 }

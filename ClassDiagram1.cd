@@ -185,30 +185,6 @@
       <FileName>ViewModel\Account\AccountVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestApp.ViewModel.LoginVM">
-    <Position X="104.5" Y="13.75" Width="1.5" />
-    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
-      <Path>
-        <Point X="103.5" Y="8.439" />
-        <Point X="103.5" Y="8.875" />
-        <Point X="104.247" Y="8.875" />
-        <Point X="104.247" Y="13.596" />
-        <Point X="105.25" Y="13.596" />
-        <Point X="105.25" Y="13.75" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAEAAAAAAAQAAAAAAAAEBAAAHAAIAAAAAAIA=</HashCode>
-      <FileName>ViewModel\Authorization\LoginVM.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TestApp.ViewModel.RegistrationVM">
-    <Position X="90.25" Y="16.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAUAAEAAAAKIAAAIAAEQAAQAABAAAAAiAAAQIAAEAAg=</HashCode>
-      <FileName>ViewModel\Authorization\RegistrationVM.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TestApp.ViewModel.BaseViewModel">
     <Position X="102.5" Y="4.25" Width="2" />
     <TypeIdentifier>
@@ -414,6 +390,30 @@
     <TypeIdentifier>
       <HashCode>AEAAAAEAFAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Behaviors\RussianLettersOnlyBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.ViewModel.LoginVM">
+    <Position X="104.5" Y="13.75" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="103.5" Y="8.439" />
+        <Point X="103.5" Y="8.875" />
+        <Point X="104.247" Y="8.875" />
+        <Point X="104.247" Y="13.596" />
+        <Point X="105.25" Y="13.596" />
+        <Point X="105.25" Y="13.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAAAAAQAAAAAAAAEBAAAHAAIAAAAAAIA=</HashCode>
+      <FileName>ViewModel\Authorization\LoginVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.ViewModel.RegistrationVM">
+    <Position X="90.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAEAAAAKIAAAIAAEQAAQAABAAAAAiAAAQIAAEAAg=</HashCode>
+      <FileName>ViewModel\Authorization\RegistrationVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="TestApp.Services.INavigationService">

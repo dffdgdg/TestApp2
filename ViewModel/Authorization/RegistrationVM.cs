@@ -61,7 +61,7 @@ public class RegistrationVM : BaseViewModel
         Logining = new RelayCommand(OnLogining);
     }
     private void OnLogining() => service.Navigate(typeof(LoginPage));
-    private void OnRegistration()
+    public void OnRegistration()
     {
         try
         {
@@ -84,8 +84,8 @@ public class RegistrationVM : BaseViewModel
             };
             dc.Users.Add(user);
             dc.SaveChanges();
-            Navigation.Show("Регистрация успешно завершена!");
             service.Navigate(typeof(LoginPage));
+            Navigation.Show("Регистрация успешно завершена!");
         }
         catch (Exception ex)
         {

@@ -62,7 +62,7 @@ namespace TestApp.ViewModel
             service.Navigate(typeof(RegistrationPage), vm);
         }
 
-        private async void OnLoginAsync(bool showMessages)
+        public async void OnLoginAsync(bool showMessages)
         {
             if (string.IsNullOrWhiteSpace(Username))
             {
@@ -86,9 +86,9 @@ namespace TestApp.ViewModel
                     var user = await dc.Users.FirstOrDefaultAsync(u => u.Id == userId);
                     if (user != null)
                     {
-                        if (SavePassword) 
-                        { 
-                            AppSettings.Default.Login = Username; 
+                        if (SavePassword)
+                        {
+                            AppSettings.Default.Login = Username;
                             AppSettings.Default.Password = Password;
                             AppSettings.Default.Save();
                         }

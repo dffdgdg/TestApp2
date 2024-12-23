@@ -18,6 +18,7 @@ namespace TestApp.ViewModel
         private int id;
         private readonly TestDbContext db;
 
+
         public byte[] Image { get; set; }
         public string Name { get; set; }
         public string Foundating_date { get; set; }
@@ -243,6 +244,7 @@ namespace TestApp.ViewModel
             else
             {
                 var vm = new EditTestVM(SelectedTest, service);
+                vm.ItemUpdated += LoadTests;
                 service.Navigate(typeof(EditTestPage), vm);
             }
         }
@@ -250,6 +252,7 @@ namespace TestApp.ViewModel
         private void AddTestItem()
         {
             var vm = new AddTestViewModel(id, service);
+            vm.ItemUpdated += LoadTests;
             service.Navigate(typeof(TestAddPage), vm);
         }
 

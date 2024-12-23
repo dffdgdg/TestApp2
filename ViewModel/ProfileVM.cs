@@ -188,7 +188,9 @@ namespace TestApp.ViewModel
         }
         private void OnLogout()
         {
-            LoginVM vm = new();
+            AppSettings.Default.Password = "";
+            AppSettings.Default.Save();
+            LoginVM vm = new(service);
             service.Navigate(typeof(LoginPage), vm);
         }
     }

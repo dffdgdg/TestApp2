@@ -23,7 +23,7 @@ namespace TestApp.Model
             });
         }
 
-        public (int userId, int userType) AuthenticateUser(string login, string password)
+        public virtual (int userId, int userType) AuthenticateUser(string login, string password)
         {
             var loginParameter = new NpgsqlParameter("p_login", login);
             var passwordParameter = new NpgsqlParameter("p_password", password);

@@ -86,14 +86,14 @@ namespace TestApp.ViewModel
         #region Методы управления аккаунтами
 
         // Открытие формы для добавления нового пользователя
-        protected void AddItem()
+        public void AddItem()
         {
             UCVisibility = Visibility.Visible;
             CurUser = new User { Usertype = 1 };
         }
 
         // Открытие выбранного пользователя для редактирования
-        protected void OpenItem()
+        public void OpenItem()
         {
             if (SelectedUser != null)
             {
@@ -104,7 +104,7 @@ namespace TestApp.ViewModel
         }
 
         // Сохранение данных пользователя
-        protected void SaveItem()
+        public void SaveItem()
         {
             try
             {
@@ -129,7 +129,7 @@ namespace TestApp.ViewModel
             }
         }
 
-        private void UpdateExistingUser(TestDbContext dc)
+        public void UpdateExistingUser(TestDbContext dc)
         {
             var existingUser = dc.Users.Find(CurUser.Id);
             if (existingUser != null)
@@ -145,7 +145,7 @@ namespace TestApp.ViewModel
             }
         }
 
-        private void AddNewUser(TestDbContext dc)
+        public void AddNewUser(TestDbContext dc)
         {
             var newUser = new User
             {
@@ -166,7 +166,7 @@ namespace TestApp.ViewModel
             UCVisibility = Visibility.Collapsed;
         }
 
-        private void UpdateData()
+        public void UpdateData()
         {
             using TestDbContext dc = new();
             Users = new ObservableCollection<User>(dc.Users
@@ -177,7 +177,7 @@ namespace TestApp.ViewModel
                 (SelectedRole == null || u.Usertype == SelectedRole.Id)));
         }
 
-        private string? ValidateUser()
+        public string? ValidateUser()
         {
             if (string.IsNullOrWhiteSpace(CurUser.Surname))
                 return "Введите фамилию!";

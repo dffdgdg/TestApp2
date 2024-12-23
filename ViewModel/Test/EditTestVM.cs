@@ -8,10 +8,12 @@ namespace TestApp.ViewModel
 {
     public class EditTestVM : BaseViewModel
     {
+        public event Action ItemUpdated;
+        protected void NotifyItemUpdated() => ItemUpdated?.Invoke();
+
         private TestDbContext db;
         private Test _test;
         private Question selectedItem, currentQuestion;
-
         public Test Test
         {
             get => _test;
@@ -57,7 +59,9 @@ namespace TestApp.ViewModel
             using var db = new TestDbContext();
             db.Tests.Update(Test);
             db.SaveChanges();
+            NotifyItemUpdated();
             ShowPopup("Сохранение прошло успешно");
+            service.GoBack();
         }
 
         protected void RemoveItem(Question item)
