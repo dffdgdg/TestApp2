@@ -29,7 +29,7 @@
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="209*"/>
         </Grid.ColumnDefinitions>
-        <ui:TextBlock Margin="0,20,0,0" Text="Регион" FontSize="36" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <ui:TextBlock Margin="0,20,0,0" Text="Район" FontSize="36" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Row="1" VerticalAlignment="Center"><Run Text="Название"/></TextBlock>
         <ui:TextBox Text="{Binding Item.Name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"
                         Grid.Row="1" Grid.Column="1"

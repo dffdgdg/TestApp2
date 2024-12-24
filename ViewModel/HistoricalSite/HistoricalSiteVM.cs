@@ -20,9 +20,7 @@ namespace TestApp.ViewModel
             set
             {
                 if (SetProperty(ref _searchText, value))
-                {
                     LoadSiteHistories();
-                }
             }
         }
         public string Name { get; set; }
@@ -64,25 +62,17 @@ namespace TestApp.ViewModel
         private void LoadSiteHistories()
         {
             var histories = _db.SiteHistories
-                .Where(u => u.Site == _currentHistoricalSite.Id)
-                .AsEnumerable()
+                .Where(u => u.Site == _currentHistoricalSite.Id).AsEnumerable()
                 .Where(u => u.Description.Contains(SearchText)
                     || u.Date.ToString("dd.MM.yyyy").Contains(SearchText)
                     || u.Date.ToString("dd MMMM yyyy").Contains(SearchText))
-                .OrderBy(u => u.Date)
-                .ToList();
+                .OrderBy(u => u.Date).ToList();
 
             SiteHistories.Clear();
-            foreach (var history in histories)
-            {
-                SiteHistories.Add(history);
-            }
+            foreach (var history in histories) SiteHistories.Add(history);
         }
 
-        protected override void OnClose()
-        {
-            UCVisibility = Visibility.Collapsed;
-        }
+        protected override void OnClose() => UCVisibility = Visibility.Collapsed;
 
         protected override void OnAdd()
         {

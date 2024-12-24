@@ -37,7 +37,7 @@
             </Border>
 
             <!-- Profile Points Section -->
-            <Border Style="{DynamicResource Card}" Padding="20" Margin="0,20,0,0">
+            <Border Style="{DynamicResource Card}" Padding="20" Margin="0,20,0,0"  Visibility="{Binding IsUser, Converter={StaticResource BoolConv}}">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <TextBlock FontSize="20" FontWeight="Bold" Text="Баллы профиля" />

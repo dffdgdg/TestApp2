@@ -20,7 +20,7 @@
         <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="{DynamicResource CardBackground}"/>
         <Grid Grid.Row="1" Background="{DynamicResource CardBackground}">
             <StackPanel VerticalAlignment="Top">
-                <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="GlobeLocation24"  Tag="Регионы"/>
+                <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="GlobeLocation24"  Tag="Районы" CommandParameter="Районы"/>
                 <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="PeopleTeam24" Tag="Аккаунты" Visibility="{Binding IsAdmin, Converter={StaticResource BoolConv}}" />
                 <RadioButton Style="{StaticResource IconRadioButtonStyle}" Content="Note24" Tag="Отчеты" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}" />
             </StackPanel>

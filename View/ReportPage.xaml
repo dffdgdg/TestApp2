@@ -15,7 +15,7 @@
                           Text="Сформировать отчет" 
                           FontSize="36" 
                           FontWeight="Bold" Margin="0,20"/>
-            <TextBlock>Регионы</TextBlock>
+            <TextBlock>Районы</TextBlock>
             <ComboBox ItemsSource="{Binding Districts}" 
                   SelectedItem="{Binding SelectedDistrict}" 
                   DisplayMemberPath="Name" 

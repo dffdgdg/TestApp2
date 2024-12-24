@@ -43,7 +43,7 @@ namespace TestApp.ViewModel
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             GenerateReportCommand = new RelayCommand(async () => await GenerateReportAsync());
             Districts = new ObservableCollection<District>([.. _dbContext.Districts]);
-            Districts.Insert(0, new District() { Name = "Все регионы" });
+            Districts.Insert(0, new District() { Name = "Все районы" });
             SelectedDistrict = Districts.First();
         }
 
@@ -73,7 +73,7 @@ namespace TestApp.ViewModel
         private async Task<List<Tuple<string, int, double, double>>> GetTestResultsAsync()
         {
             var results = await _dbContext.Users.Include(u => u.Userresults).ThenInclude(ur => ur.TestNavigation)
-                .Where(u => SelectedDistrict.Name == "Все регионы" || u.Userresults.Any(ur => ur.TestNavigation.District == SelectedDistrict.Id))
+                .Where(u => SelectedDistrict.Name == "Все районы" || u.Userresults.Any(ur => ur.TestNavigation.District == SelectedDistrict.Id))
                 .Where(u => !StartDate.HasValue || u.Userresults.Any(ur => ur.CreatedAt >= DateOnly.FromDateTime(StartDate.Value)))
                 .Where(u => !EndDate.HasValue || u.Userresults.Any(ur => ur.CreatedAt <= DateOnly.FromDateTime(EndDate.Value)))
                 .Select(u => new

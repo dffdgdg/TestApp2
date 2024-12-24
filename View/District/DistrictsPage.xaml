@@ -10,8 +10,7 @@
       xmlns:converters="clr-namespace:TestApp.Converters" 
       Foreground="{DynamicResource TextFillColorPrimaryBrush}" Margin="40,30,40,0" >
     <Grid>
-        <ui:TextBox Height="35" Margin="0,-700,0,-0.5"/>
-        <ui:TextBlock Margin="10,20" Text="Регионы" FontSize="36" FontWeight="Bold"/>
+        <ui:TextBlock Margin="10,20" Text="Районы" FontSize="36" FontWeight="Bold"/>
         <ui:Button x:Name="addBtn" VerticalAlignment="Top" 
                Height="45" 
                Margin="0,20" 

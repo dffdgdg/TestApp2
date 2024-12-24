@@ -72,7 +72,7 @@ class DistrictEditViewModel : BaseEditsModel<District>
         if (Item?.Image == null)
             return "Выберите изображение!";
         if (db.Districts.Any(u => u.Name == Item.Name && u.Id != Item.Id))
-            return "Регион с таким именем уже существует!";
+            return "Район с таким именем уже существует!";
         return null;
     }
 

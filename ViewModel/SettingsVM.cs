@@ -32,7 +32,7 @@ namespace TestApp.ViewModel
             switch (SelectedTheme)
             {
                 case 0:
-                    ApplicationThemeManager.Apply(ApplicationTheme.Light, Wpf.Ui.Controls.WindowBackdropType.Tabbed);
+                    ApplicationThemeManager.Apply(ApplicationTheme.Light, Wpf.Ui.Controls.WindowBackdropType.Mica);
                     AppSettings.Default.Theme = "Light";
                     AppSettings.Default.Save();
                     break;

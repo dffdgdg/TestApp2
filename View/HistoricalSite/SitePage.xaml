@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image Source="{Binding Image}" 
+        <Image Source="{Binding Image}"
            Stretch="UniformToFill" 
            Grid.Row="0" />
 
@@ -69,7 +69,10 @@
                         </ui:TextBox>
                         <ui:Button Grid.Column="1" x:Name="addBtn"
           Appearance="Primary" 
-          Content="Добавить" FontWeight="Bold" Command="{Binding Add}" Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}" Height="35">
+          Content="Добавить" FontWeight="Bold" 
+                                   Visibility="{Binding IsWorker, Converter={StaticResource BoolConv}}" 
+                                   Command="{Binding Add}" 
+                                   Height="35">
                             <ui:Button.Icon>
                                 <ui:SymbolIcon Symbol="Add24"/>
                             </ui:Button.Icon>
@@ -169,8 +172,8 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
-        <!--<local1:SiteHistoryUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
+        <local1:SiteHistoryUC DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"
                           Grid.RowSpan="2" IsHitTestVisible="True"
-                          Visibility="{Binding UCVisibility}"/>-->
+                          Visibility="{Binding UCVisibility}"/>
     </Grid>
 </Page>

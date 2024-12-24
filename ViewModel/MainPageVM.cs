@@ -23,14 +23,14 @@ namespace TestApp.ViewModel
             GoForwardCommand = new RelayCommand(GoForward);
             this.userId = userId;
             this.UserType = userType;
-            Navigate("Регионы");
+            Navigate("Районы");
         }
 
         private void Navigate(string parameter)
         {
             switch (parameter)
             {
-                case "Регионы":
+                case "Районы":
                     DistinctVM distinctVM = new(userId,UserType,service);
                     service.Navigate(typeof(DistrictsPage), distinctVM);
                     break;

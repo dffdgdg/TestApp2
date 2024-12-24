@@ -93,7 +93,7 @@ namespace TestApp.ViewModel
                             AppSettings.Default.Save();
                         }
                         service.Navigate(typeof(MainPage), user.Id, user.Usertype, service);
-                        if (showMessages) Navigation.Show($"Добро пожаловать, {user.Login}!");
+                        Navigation.Show($"Добро пожаловать, {user.Login}!");
                     }
                     else
                     {

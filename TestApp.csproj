@@ -10,9 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UnitTests\**" />
     <Compile Remove="View\District\AddTest\**" />
+    <EmbeddedResource Remove="UnitTests\**" />
     <EmbeddedResource Remove="View\District\AddTest\**" />
+    <None Remove="UnitTests\**" />
     <None Remove="View\District\AddTest\**" />
+    <Page Remove="UnitTests\**" />
     <Page Remove="View\District\AddTest\**" />
   </ItemGroup>
 
