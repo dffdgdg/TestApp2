@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TestApp.View.Profile.ChangePasswordUC" BaseTypeListCollapsed="true">
-    <Position X="104.5" Y="25.25" Width="1.5" />
+    <Position X="85" Y="16.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\Profile\ChangePasswordUC.xaml.cs</FileName>
@@ -9,105 +9,105 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Model.Answer">
-    <Position X="99" Y="24" Width="1.5" />
+    <Position X="90.25" Y="17.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAIAgAAAAAA=</HashCode>
       <FileName>Model\Answer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.CurrentMonthTestResult">
-    <Position X="91.75" Y="6" Width="1.5" />
+    <Position X="79.75" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAIAAABAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Model\CurrentMonthTestResult.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.TestDbContext">
-    <Position X="102.5" Y="13.75" Width="1.5" />
+    <Position X="83.25" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAACSAAAQAYiAIAAgAAAAAEEAAEAAAEQAAAAIAAAMQ=</HashCode>
       <FileName>Model\DBContextPartial.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.AuthResult">
-    <Position X="97.25" Y="25" Width="1.5" />
+    <Position X="92" Y="17" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Model\DBContextPartial.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.BoolResult">
-    <Position X="99" Y="12.75" Width="1.5" />
+    <Position X="83.25" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\DBContextPartial.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.District">
-    <Position X="90" Y="6.25" Width="1.5" />
+    <Position X="78" Y="16.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAACAAAgAAAgAAAAAAAAAAQEAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\District.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.DistrictTest">
-    <Position X="99" Y="22.25" Width="1.5" />
+    <Position X="93.75" Y="18.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAUAAAAAAAAAA=</HashCode>
       <FileName>Model\DistrictTest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.HistoricalSite">
-    <Position X="90.25" Y="24.25" Width="1.5" />
+    <Position X="86.75" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAQAgAAAgAAACAAAAAAQAAAAEABAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\HistoricalSite.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.Question">
-    <Position X="90.25" Y="21.75" Width="1.5" />
+    <Position X="88.5" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAABAAQQAECAAAAAA=</HashCode>
       <FileName>Model\Question.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.SiteHistory">
-    <Position X="97.25" Y="4.25" Width="1.5" />
+    <Position X="93.75" Y="20.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAhgAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Model\SiteHistory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.Test">
-    <Position X="93.75" Y="19" Width="1.5" />
+    <Position X="85" Y="19.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAQAgAAAgAEIAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Model\Test.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.User">
-    <Position X="93.75" Y="21.5" Width="1.5" />
+    <Position X="92" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAACAIAAAEAAAQABAAAAAACAAAQABAAAAA=</HashCode>
       <FileName>Model\User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.Userresult">
-    <Position X="92" Y="24.5" Width="1.5" />
+    <Position X="88.5" Y="15.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAADAAAAAAAAAAgAACAAAAAAAgAAAAAAAAAECAAAAAA=</HashCode>
       <FileName>Model\Userresult.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Model.Usertype">
-    <Position X="104.5" Y="23.5" Width="1.5" />
+    <Position X="85" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Usertype.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Converters.BooleanConverter" BaseTypeListCollapsed="true">
-    <Position X="102.5" Y="24" Width="1.5" />
+    <Position X="85" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\BooleanConverter.cs</FileName>
@@ -115,7 +115,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.BoolToVisibilityConverter" BaseTypeListCollapsed="true">
-    <Position X="93.75" Y="24.5" Width="1.5" />
+    <Position X="90.25" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\BoolToVisibilityConverter.cs</FileName>
@@ -123,7 +123,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.CompletedTestConverter" BaseTypeListCollapsed="true">
-    <Position X="95.5" Y="25.5" Width="1.5" />
+    <Position X="92" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\CompletedTestConverter.cs</FileName>
@@ -131,7 +131,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.CountToVisibilityConverter" BaseTypeListCollapsed="true">
-    <Position X="91.75" Y="4.25" Width="1.5" />
+    <Position X="81.5" Y="20.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\CountToVisibilityConverter.cs</FileName>
@@ -139,7 +139,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.DateOnlyToDateTimeConverter" BaseTypeListCollapsed="true">
-    <Position X="102.5" Y="25.5" Width="1.5" />
+    <Position X="86.75" Y="17.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\DateOnlyToDateTimeConverter.cs</FileName>
@@ -147,7 +147,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.ImageToBitmapImageConverter" BaseTypeListCollapsed="true">
-    <Position X="90" Y="4.75" Width="1.5" />
+    <Position X="100.75" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\ImageToBitmapImageConverter.cs</FileName>
@@ -155,7 +155,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.ReverseBooleanConverter" BaseTypeListCollapsed="true">
-    <Position X="97.25" Y="6.5" Width="1.5" />
+    <Position X="100.75" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\ReverseBooleanConverter.cs</FileName>
@@ -163,7 +163,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.RussianDateConverter" BaseTypeListCollapsed="true">
-    <Position X="93.5" Y="4.25" Width="1.5" />
+    <Position X="83.25" Y="21" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\RussianDateConverter.cs</FileName>
@@ -171,7 +171,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Converters.StringToFlowDocConverter" BaseTypeListCollapsed="true">
-    <Position X="97.25" Y="23.5" Width="1.5" />
+    <Position X="99" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Converters\StringToFlowDocConverter.cs</FileName>
@@ -179,14 +179,22 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.ViewModel.AccountVM">
-    <Position X="99" Y="14.75" Width="1.5" />
+    <Position X="102.5" Y="12.5" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.Base.BaseUserControlViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="98" Y="11.771" />
+        <Point X="98" Y="11.894" />
+        <Point X="103.25" Y="11.894" />
+        <Point X="103.25" Y="12.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>IEJAAKBAEAAAIAAAAQADAQAAgwAgCAQACIooAACAAAA=</HashCode>
       <FileName>ViewModel\Account\AccountVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.BaseViewModel">
-    <Position X="102.5" Y="4.25" Width="2" />
+    <Position X="77.5" Y="9.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAIgAAAAAEAAAKAQAAAEAiAEACAAAAEAAAAEAAAA=</HashCode>
       <FileName>ViewModel\Base\BaseViewModel.cs</FileName>
@@ -194,14 +202,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TestApp.ViewModel.DistinctVM">
-    <Position X="102.5" Y="19.75" Width="1.5" />
+    <Position X="99" Y="17.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAgQEIEAAAAAAAAAEBAIAAAQAAAQAAAAIAAAAAAAA=</HashCode>
       <FileName>ViewModel\District\DistinctVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.DistrictDetailVM">
-    <Position X="95.5" Y="14.75" Width="1.5" />
+    <Position X="95.5" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ECjAAOAAEgAwAAMBIAYBAIwEAgADIBAEAQIAgECwigA=</HashCode>
       <FileName>ViewModel\District\DistrictDetailVM.cs</FileName>
@@ -215,14 +223,22 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.HistoricalSiteVM">
-    <Position X="100.75" Y="19.75" Width="1.5" />
+    <Position X="100.75" Y="13.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAoAEAAAChIgACAAEAAIQAAAAEARBAAAIAAEoAAAA=</HashCode>
       <FileName>ViewModel\HistoricalSite\HistoricalSiteVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.SiteEditVM">
-    <Position X="92" Y="14.75" Width="1.5" />
+    <Position X="88.5" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.Base.BaseEditsModel&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="94.5" Y="9.25" />
+        <Point X="94.5" Y="8.947" />
+        <Point X="89.125" Y="8.947" />
+        <Point X="89.125" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>EAAAAAAAIACwAAAACAAAAAEgEAAAAAAAAAAAAACAAgA=</HashCode>
       <FileName>ViewModel\HistoricalSite\SiteEditVM.cs</FileName>
@@ -231,55 +247,96 @@
   <Class Name="TestApp.ViewModel.AddTestViewModel">
     <Position X="90.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAiCkQEAAAACABAAEAEYAACsAEAQCAQAEgg=</HashCode>
+      <HashCode>EAAAIAAAIAiigQEAAAACABEAEAEYAACsAEAQCASAEgg=</HashCode>
       <FileName>ViewModel\Test\AddTestVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.EditTestVM">
     <Position X="92" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.988" />
+        <Point X="81.324" Y="8.988" Type="JumpStart" />
+        <Point X="81.491" Y="8.988" Type="JumpEnd" />
+        <Point X="91.934" Y="8.988" />
+        <Point X="91.934" Y="15.235" />
+        <Point X="92.75" Y="15.235" />
+        <Point X="92.75" Y="15.107" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>EAJAAJAEAAAQIAAAAAAABAAAgAQAAAAGBBAACAAQAAA=</HashCode>
+      <HashCode>EAJCAJAEAAAQIAAAAAAABAAAgAwAAAAGBBAACAAQAAA=</HashCode>
       <FileName>ViewModel\Test\EditTestVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.QuestionVM">
-    <Position X="95.5" Y="9.25" Width="1.5" />
+    <Position X="83.25" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.997" />
+        <Point X="81.324" Y="8.997" Type="JumpStart" />
+        <Point X="81.491" Y="8.997" Type="JumpEnd" />
+        <Point X="83.127" Y="8.997" />
+        <Point X="83.127" Y="11.664" />
+        <Point X="83.25" Y="11.664" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>EApAAJAAAAAQAQAAAAAABAAAgAQAAAAMQQAAAAAAAAA=</HashCode>
       <FileName>ViewModel\Test\QuestionVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.TestQuestionsVM">
-    <Position X="92" Y="19" Width="1.5" />
+    <Position X="85" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.934" />
+        <Point X="84.852" Y="8.934" />
+        <Point X="84.852" Y="14.617" />
+        <Point X="85.75" Y="14.617" />
+        <Point X="85.75" Y="14.463" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>ABAFgAASAAAAAAAAgEAIAAAAjAAABAEAAAAAABAjAAA=</HashCode>
       <FileName>ViewModel\Test\TestQuestionsVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.TestResultVM">
-    <Position X="100.75" Y="9.25" Width="1.5" />
+    <Position X="81.5" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.933" />
+        <Point X="81.353" Y="8.933" />
+        <Point X="81.353" Y="13.239" />
+        <Point X="82.25" Y="13.239" />
+        <Point X="82.25" Y="13.117" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAACAABQABBAACAAAAAACABAAAAAIAAAEAA=</HashCode>
       <FileName>ViewModel\Test\TestResultVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.MainPageVM">
-    <Position X="99" Y="9.25" Width="1.5" />
+    <Position X="79.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAACAAAAAAAQAAAAAQAAAEAAAAQAAAAAgA=</HashCode>
       <FileName>ViewModel\MainPageVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.MainWindowVM">
-    <Position X="102.5" Y="12.25" Width="1.5" />
-    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+    <Position X="95.5" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="103.5" Y="8.439" />
-        <Point X="103.5" Y="8.875" />
-        <Point X="104.263" Y="8.875" />
-        <Point X="104.263" Y="12.096" />
-        <Point X="103.25" Y="12.096" />
-        <Point X="103.25" Y="12.25" />
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.875" />
+        <Point X="96.188" Y="8.875" />
+        <Point X="96.188" Y="9.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -288,20 +345,22 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.ProfileVM">
-    <Position X="97.25" Y="14.75" Width="1.5" />
+    <Position X="97.25" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AECCAADHSCAAgAAAQBBBAiIAAkEACAAAIEIDAMQIAEE=</HashCode>
       <FileName>ViewModel\ProfileVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.ReportVM">
-    <Position X="104.5" Y="9.25" Width="1.5" />
-    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true" FixedToPoint="true">
+    <Position X="81.5" Y="13.5" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="103.5" Y="8.439" />
-        <Point X="103.5" Y="8.875" />
-        <Point X="105.25" Y="8.875" />
-        <Point X="105.25" Y="9.25" />
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.875" />
+        <Point X="81.407" Y="8.875" />
+        <Point X="81.407" Y="13.239" />
+        <Point X="82.25" Y="13.239" />
+        <Point X="82.25" Y="13.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -310,14 +369,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.SettingsVM">
-    <Position X="102.5" Y="9.25" Width="1.5" />
+    <Position X="102.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAKAAAQAAAAAA=</HashCode>
       <FileName>ViewModel\SettingsVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.Base.BaseEditModel&lt;T&gt;">
-    <Position X="100.75" Y="14.75" Width="1.5" />
+    <Position X="99" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAIAAIEAAACAIAAEACEABIAAAAABAQACAAAAAgACAAA=</HashCode>
       <FileName>ViewModel\Base\BaseEditModel.cs</FileName>
@@ -325,6 +384,16 @@
   </Class>
   <Class Name="TestApp.ViewModel.Base.BaseEditsModel&lt;T&gt;">
     <Position X="93.75" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.947" />
+        <Point X="93.55" Y="8.947" />
+        <Point X="93.55" Y="14.345" />
+        <Point X="94.5" Y="14.345" />
+        <Point X="94.5" Y="14.145" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>EAACAIAAIACgAAAAAAQAAAEEAggBAAAAAQAAAACQAAA=</HashCode>
       <FileName>ViewModel\Base\BaseEditsModel.cs</FileName>
@@ -332,13 +401,23 @@
   </Class>
   <Class Name="TestApp.ViewModel.Base.BaseUserControlViewModel">
     <Position X="97.25" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="8.946" />
+        <Point X="97.09" Y="8.946" />
+        <Point X="97.09" Y="11.894" />
+        <Point X="98" Y="11.894" />
+        <Point X="98" Y="11.771" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAACAAAA=</HashCode>
       <FileName>ViewModel\Base\BaseUserControlViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Services.MessageBoxs">
-    <Position X="95.5" Y="4.25" Width="1.5" />
+    <Position X="79.75" Y="20.5" Width="1.5" />
     <NestedTypes>
       <Enum Name="TestApp.Services.MessageBoxs.Buttons" Collapsed="true">
         <TypeIdentifier>
@@ -357,14 +436,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Services.Navigation">
-    <Position X="93.5" Y="5.75" Width="1.5" />
+    <Position X="78" Y="19" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\Navigation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Services.NavigationService" BaseTypeListCollapsed="true">
-    <Position X="100.75" Y="6" Width="1.5" />
+    <Position X="81.5" Y="18" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAQgAAAAAA=</HashCode>
       <FileName>Services\NavigationService.cs</FileName>
@@ -372,36 +451,36 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TestApp.Behaviors.NumericOnlyBehavior">
-    <Position X="99" Y="4.25" Width="1.5" />
+    <Position X="78" Y="13.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAFAAAACAAAAAACAAAAAAAAAAAAEAAAAAAAQA=</HashCode>
       <FileName>Behaviors\NumericOnlyBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Behaviors.PasswordBehavior">
-    <Position X="104.5" Y="20.5" Width="1.5" />
+    <Position X="88.5" Y="18.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAFAAAAAAAIAAAAAAAAAAAABACAAAAAAAAAAQ=</HashCode>
       <FileName>Behaviors\PasswordBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.Behaviors.RussianLettersOnlyBehavior">
-    <Position X="104.5" Y="17.75" Width="1.5" />
+    <Position X="86.75" Y="18.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAEAFAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Behaviors\RussianLettersOnlyBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.LoginVM">
-    <Position X="104.5" Y="13.75" Width="1.5" />
-    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+    <Position X="79.75" Y="12.75" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
-        <Point X="103.5" Y="8.439" />
-        <Point X="103.5" Y="8.875" />
-        <Point X="104.247" Y="8.875" />
-        <Point X="104.247" Y="13.596" />
-        <Point X="105.25" Y="13.596" />
-        <Point X="105.25" Y="13.75" />
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="9.002" />
+        <Point X="81.388" Y="9.002" />
+        <Point X="81.388" Y="16.609" />
+        <Point X="80.5" Y="16.609" />
+        <Point X="80.5" Y="16.425" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -410,14 +489,227 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TestApp.ViewModel.RegistrationVM">
-    <Position X="90.25" Y="16.5" Width="1.5" />
+    <Position X="86.75" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="TestApp.ViewModel.BaseViewModel" ManuallyRouted="true">
+      <Path>
+        <Point X="78.5" Y="9.25" />
+        <Point X="78.5" Y="9.017" />
+        <Point X="81.27" Y="9.017" Type="JumpStart" />
+        <Point X="81.491" Y="9.017" Type="JumpEnd" />
+        <Point X="84.769" Y="9.017" Type="JumpStart" />
+        <Point X="84.936" Y="9.017" Type="JumpEnd" />
+        <Point X="86.627" Y="9.017" />
+        <Point X="86.627" Y="14.394" />
+        <Point X="87.5" Y="14.394" />
+        <Point X="87.5" Y="14.271" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAUAAEAAAAKIAAAIAAEQAAQAABAAAAAiAAAQIAAEAAg=</HashCode>
       <FileName>ViewModel\Authorization\RegistrationVM.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TestApp.View.Account.AccountPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Account\AccountPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Account.AccountUC" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Account\AccountUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Authentication.LoginPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Authentication\LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Authentication.RegistrationPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Authentication\RegistrationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.MessageBoxW" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAEAAAAAAAAAAQAAEIAAAQA=</HashCode>
+      <FileName>View\Dialog\MessageBoxW.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Snackbar" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAEAAAAAAAAAAEAAAAAAAAIAAQAAA=</HashCode>
+      <FileName>View\Dialog\Snackbar.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.TestQuestionsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\Test\TestQuestionsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.TestResultPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\Test\TestResultPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.ProfilePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Profile\ProfilePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.MainPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.491" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.ReportPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\ReportPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.SettingsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SettingsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.District.DistinctDetailPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\District\DistrictDetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.District.DistrictEditPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\District\DistrictEditPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.District.DistrictsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\District\DistrictsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Test.AddTest.EditTestPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\Test\AddTest\EditTestPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Test.AddTest.QuestionAnswersPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\Test\QuestionAnswersPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Test.TestAddPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\Test\AddTest\TestAddPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Test.TestDetailPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\Test\TestDetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.HistoricalSite.SiteEditPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\SiteEditPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.HistoricalSite.SitePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\SitePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.HistoricalSite.History.SiteHistoryUC" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\HistoricalSite\SiteHistoryUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.View.Profile.FIOUC" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Profile\FIOUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TestApp.Model.UsersWithType" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAABAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Model\UsersWithType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="TestApp.Services.INavigationService">
-    <Position X="100.75" Y="4.25" Width="1.5" />
+    <Position X="79.75" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAQAAAAAAA=</HashCode>
       <FileName>Services\INavigationService.cs</FileName>

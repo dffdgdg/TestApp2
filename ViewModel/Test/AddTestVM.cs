@@ -53,7 +53,7 @@ public class AddTestViewModel : BaseEditsModel<Test>
         {
             _selectedQuestion = value;
             OnPropertyChanged(nameof(SelectedQuestion));
-            OnPropertyChanged(nameof(SelectedQuestionAnswers)); // Обновляем отображение ответов
+            OnPropertyChanged(nameof(SelectedQuestionAnswers));
         }
     }
 
@@ -150,25 +150,16 @@ public class AddTestViewModel : BaseEditsModel<Test>
         try
         {
             string? errorMessage = Validate();
-
-            if (errorMessage != null)
-            {
-                ShowError(errorMessage);
-                return;
-            }
-
+            if (errorMessage != null) { ShowError(errorMessage); return; }
             context.Tests.Add(Test);
             context.SaveChanges();
-
             foreach (var question in Questions)
             {
                 question.Test = Test.Id;
                 DetermineQuestionType(question);
                 context.Questions.Add(question);
             }
-
             context.SaveChanges();
-
             foreach (var question in Questions)
             {
                 foreach (var answer in question.Answers)
@@ -178,7 +169,6 @@ public class AddTestViewModel : BaseEditsModel<Test>
                 }
             }
             context.SaveChanges();
-
             NotifyItemUpdated();
             ShowPopup("Добавление прошло успешно!");
             service.GoBack();
